@@ -53,5 +53,4 @@
 
 ## 使用素材
 
-- o-dan FREE PHOTO  <br>
-&nbsp;<https://o-dan.net/ja/>
+- o-dan FREE PHOTO&nbsp;<https://o-dan.net/ja/>
