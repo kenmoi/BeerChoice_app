@@ -6,12 +6,15 @@
 ### サイトテーマ
 
 ビールは好きだけど、普段とは違うビールが飲みたい！でもなにがオススメか分からない！そんなあなたに向けたクチコミサイトです！
+
 登録して、好きなビールを投稿してお気に入りのビールを見つけよう！
 
 ### テーマを選んだ理由
 
 ビールが好きで、もっと好きになれるビールを見つけたいと思ったのがきっかけです。
+
 また、私自信がビールに特別詳しくはないため、色んな人のおすすめや感想を知りたいと思い考案しました。
+
 投稿者目線ではなく、管理者もまたユーザー目線で知見を得たいと考えたため、様々なユーザーが好きを共有し、お気に入りを見つけるサイトを目指しました。
 
 ### ターゲットユーザー
@@ -26,10 +29,13 @@
 
 __ワイヤーフレーム__
 <https://drive.google.com/file/d/13WinAuVFDVvxj91BLP81OzZ6busfZ-ww/view?usp=sharing>
+
 __ER図__
 <https://drive.google.com/file/d/1ossY09fCOd4H7mfQ26ssO_tG83zlT37X/view?usp=sharing>
+
 __テーブル定義書__
 <https://drive.google.com/file/d/1YCDoZqaSlRokhY5471ryB9gGBZO7SKum/view?usp=sharing>
+
 __アプリケーション詳細設計書__
 <https://drive.google.com/file/d/1ZFRMkklANJVu83nF7Q_A9b3JurbyjcAh/view?usp=sharing>
 
