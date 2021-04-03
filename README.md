@@ -33,9 +33,9 @@ __ER図__  <br>
 __テーブル定義書__  <br>
 <https://drive.google.com/file/d/1YCDoZqaSlRokhY5471ryB9gGBZO7SKum/view?usp=sharing>
 
-__アプリケーション詳細設計書__
+__アプリケーション詳細設計書__  <br>
 <https://drive.google.com/file/d/1ZFRMkklANJVu83nF7Q_A9b3JurbyjcAh/view?usp=sharing>
-
+<br>
 
 ## チャレンジ要素一覧
 
