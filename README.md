@@ -24,13 +24,13 @@
 
 ## 設計書
 
-__ワイヤーフレーム__<br>
+__ワイヤーフレーム__
 <https://drive.google.com/file/d/13WinAuVFDVvxj91BLP81OzZ6busfZ-ww/view?usp=sharing>
-__ER図__<br>
+__ER図__
 <https://drive.google.com/file/d/1ossY09fCOd4H7mfQ26ssO_tG83zlT37X/view?usp=sharing>
-__テーブル定義書__<br>
+__テーブル定義書__
 <https://drive.google.com/file/d/1YCDoZqaSlRokhY5471ryB9gGBZO7SKum/view?usp=sharing>
-__アプリケーション詳細設計書__<br>
+__アプリケーション詳細設計書__
 <https://drive.google.com/file/d/1ZFRMkklANJVu83nF7Q_A9b3JurbyjcAh/view?usp=sharing>
 
 ## チャレンジ要素一覧
