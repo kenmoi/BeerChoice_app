@@ -40,6 +40,7 @@ __アプリケーション詳細設計書__
 
 <https://drive.google.com/file/d/1ZFRMkklANJVu83nF7Q_A9b3JurbyjcAh/view?usp=sharing>
 
+
 ## チャレンジ要素一覧
 
 <https://docs.google.com/spreadsheets/d/1j5HKTgdlgiooCW6fotUCFGJY21Tc-RVXY-HXPGtq-1w/edit?usp=sharing>
