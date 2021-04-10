@@ -14,7 +14,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :Sex, "性別" %><br>
+    <%= f.label :sex, "性別" %><br>
     <%= f.label :man, "男性"  %>
     <%= f.radio_button :sex, :man %>
     <%= f.label :woman, "女性"  %>
@@ -28,6 +28,7 @@
 
   <div class="field">
      <%= f.label :prefecture_id, "都道府県" %><br>
+     <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"} %>
   </div>
 
   <div class="field">

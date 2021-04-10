@@ -16,3 +16,33 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+
+/*=====================================
+ リセット CSS
+=====================================*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+/*=====================================
+ 共通
+=====================================*/
+
+main {
+  background-color: #FFFCDB;
+  min-height: calc(100vh - 7rem);
+}
+
+.wrap {
+  overflow: hidden;
+}
+
+
+/*=====================================
+ header/footer
+=====================================*/

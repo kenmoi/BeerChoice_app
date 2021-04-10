@@ -10,6 +10,74 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrap">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+          <a class="navbar-brand" href="/">
+           <h1 class="title" style="font-family: cursive;">BeerChoice</h1>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav ml-auto">
+              <!-- ログインしている時 -->
+              <% if user_signed_in? %>
+                <li class="youkoso">
+                  ようこそ、<%= current_user.name %>さん！
+                </li>
+                <div class="navbar-nav">
+                  <li class="nav-item">
+                     <%= link_to "マイページ", customers_my_page_path, :style =>"color:white;" %>
+                  </li>
+                  <li class="nav-item">
+                      <%= link_to "商品一覧", items_path, :style =>"color:white;" %>
+                  </li>
+                  <li class="nav-item">
+                      <%= link_to "カート", cart_items_path, :style =>"color:white;"%>
+                  </li>
+                  <li class="nav-item">
+                      <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, :style =>"color:white;" %>
+                  </li>
+              <!-- ログインしてない時 -->
+              <% else %>
+                <div class="navbar-nav">
+                  <li class="nav-item">
+                      <%= link_to "About", about_path, :style =>"color:white;" %>
+                  </li>
+                  <li class="nav-item">
+                      <%= link_to "商品一覧", items_path, :style =>"color:white;" %>
+                  </li>
+                  <li class="nav-item">
+                      <%= link_to "新規登録", new_customer_registration_path, :style =>"color:white;" %>
+                  </li>
+                  <li class="nav-item">
+                      <%= link_to "ログイン", new_customer_session_path, :style =>"color:white;"%>
+                  </li>
+                </div>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--サクセスメッセージ-->
+      <% if flash[:notice] %>
+        <div class="alert alert-primary mb-0" role="alert"><strong><%= notice %></strong></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger mb-0" role="alert"><strong><%= alert %></strong></div>
+      <% end %>
+      <% if flash[:error] %>
+        <div class="alert alert-danger mb-0" role="alert"><strong><%= flash[:error] %></strong></div>
+      <% end %>
+      <main>
+       <%= yield %>
+      </main>
+      <footer class="bg-danger text-white pt-5 pb-4">
+       <div>
+         <p class="text-center">Copyright © 2021 BeerChoice All rights reserved.</p>
+       </div>
+      </footer>
+    </div>
   </body>
 </html>
