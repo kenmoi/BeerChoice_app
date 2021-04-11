@@ -42,7 +42,20 @@ main {
   overflow: hidden;
 }
 
-
 /*=====================================
- header/footer
+ header / footer
 =====================================*/
+
+header{
+   width: 100%;
+   background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
+}
+
+.nav-item{
+   padding: 10px 20px;
+}
+
+footer{
+   margin-top: auto;
+   background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
+}
