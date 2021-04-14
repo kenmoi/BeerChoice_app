@@ -1,2 +1,72 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+  <div class="row mx-auto">
+    <div class="main-title col-md-11">
+      <h2 class="page-title">
+        <span class="beer">登録情報・プロフィールの変更</span>
+      </h2>
+      <%= form_with model: @user, local:true do |f| %>
+      <div class="info">
+        <table>
+          <tbody>
+            <tr>
+              <th style="width: 50%;">ユーザー名</th>
+              <td style="width: 50%;"><%= f.text_field :name, autofocus: true, class: 'form-control' %></td>
+            </tr>
+            <tr>
+              <th style="width: 50%;">メールアドレス</th>
+              <td style="width: 50%;"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %></td>
+            </tr>
+            <tr>
+              <th style="width: 50%;">生年月日</th>
+              <td style="width: 50%;"><%= f.date_select :birth_date, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 20), default: Date.new(1990, 1, 1) %></td>
+            </tr>
+            <tr>
+              <th style="width: 50%;">性別</th>
+              <td style="width: 50%; padding-bottom: 0;">
+                <%= f.label :man, "男性" %>
+                <%= f.radio_button :sex, :man %>
+                <%= f.label :woman, "女性"  %>
+                <%= f.radio_button :sex, :woman %>
+              </td>
+            </tr>
+            <tr>
+              <th style="width: 50%;">都道府県</th>
+              <td style="width: 50%;"><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, class: 'form-control' %></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <table>
+          <tbody>
+            <tr>
+              <th>プロフィール写真</th>
+              <td>
+                <% if @user.profile_image_id.present? %>
+                  <%= attachment_image_tag @user, :profile_image, :fill, 150, 150 %><br>
+                  <%= link_to '削除', user_path(@user), method: :delete, class: 'text-secondary' %><br>
+                <% end %>
+                <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+              </td>
+            </tr>
+            <tr>
+              <th>好きなビアスタイル</th>
+              <td><%= f.select :favorite_style, [["ラガー", "1"], ["エール", "2"], ["ハイブリッド", "3"], ["その他", "4"]], include_blank: "選択して下さい" %></td>
+            </tr>
+            <tr>
+              <th>お気に入りビール</th>
+              <td><%= f.text_area :favorite_beer, class: 'form-control' %></td>
+            </tr>
+            <tr>
+              <th>自己紹介・備考</th>
+              <td><%= f.text_area :introduction, class: 'form-control' %></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row mt-4">
+         <%= f.submit '登　録', class: 'btn btn-danger mx-auto h3' %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

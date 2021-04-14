@@ -24,9 +24,11 @@ ActiveRecord::Schema.define(version: 2021_04_09_071224) do
     t.integer "prefecture_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_image_id"
     t.text "introduction"
     t.string "favorite_beer"
-    t.integer "favorite_style", default: 0, null: false
+    t.integer "favorite_style"
+    t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

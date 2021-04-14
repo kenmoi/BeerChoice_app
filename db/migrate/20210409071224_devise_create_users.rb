@@ -39,9 +39,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :prefecture_id, null: false, default: 0
       t.timestamps null: false
 
+      t.string :profile_image_id
       t.text :introduction
       t.string :favorite_beer
-      t.integer :favorite_style, null: false, default: 0
+      t.integer :favorite_style
+      t.boolean :is_deleted, default: false
     end
 
     add_index :users, :email,                unique: true

@@ -1,2 +1,62 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row mx-auto">
+    <div class="main-title col-md-11">
+      <h2 class="page-title">
+        <span class="beer">登録内容変更</span>
+      </h2>
+      <div class="info">
+        <div style="text-align:right;">
+          <%= link_to ">>ユーザー情報を編集する", edit_user_path(@user), class: 'text-secondary' %>
+        </div>
+        <table>
+          <tbody>
+            <tr>
+              <th style="width: 50%;">ユーザー名</th>
+              <td style="width: 50%;"><%= @user.name %></td>
+            </tr>
+            <tr>
+              <th style="width: 50%;">メールアドレス</th>
+              <td style="width: 50%;"><%= @user.email %></td>
+            </tr>
+            <tr>
+              <th style="width: 50%;">生年月日</th>
+              <td style="width: 50%;"><%= @user.birth_date.strftime('%Y/%m/%d') %></td>
+            </tr>
+            <tr>
+              <th style="width: 50%;">性別</th>
+              <td style="width: 50%;"><%= @user.sex %></td>
+            </tr>
+            <tr>
+              <th style="width: 50%;">都道府県</th>
+              <td style="width: 50%;"><%= @user.prefecture_id %></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <table>
+          <tbody>
+            <tr>
+              <th>プロフィール写真</th>
+              <td><%= attachment_image_tag @user, :profile_image, :fill, 150, 150 %></td>
+            </tr>
+            <tr>
+              <th>好きなビアスタイル</th>
+              <td><%= @user.favorite_style %></td>
+            </tr>
+            <tr>
+              <th>お気に入りビール</th>
+              <td><%= simple_format(@user.favorite_beer) %></td>
+            </tr>
+            <tr>
+              <th>自己紹介・備考</th>
+              <td><%= simple_format(@user.introduction) %></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="text-align: left; margin-top: 6px;">
+          <%= link_to "退会する>>", cancel_path(@user), class: 'text-secondary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

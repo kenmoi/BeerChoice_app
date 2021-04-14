@@ -48,6 +48,7 @@ main {
 =====================================*/
 
 header{
+
    width: 100%;
    background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
 }
@@ -62,6 +63,76 @@ footer{
 }
 
 /*=====================================
+ user / mypage
+=====================================*/
+
+.main-title {
+  text-align: left;
+}
+
+.page-title {
+  font-size: 150%;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #573929;
+}
+
+.box-item {
+  font-size: 135%;
+  padding-top: 10px;
+  margin-top: 40px;
+  border-bottom: 2px solid #efefef;
+  border-top: 2px solid #573929;
+}
+
+.user-show {
+  margin-top: 40px;
+}
+
+.picture {
+  border-radius: 50%;
+  margin-left: 50px;
+}
+
+/*=====================================
  user / show
 =====================================*/
 
+.info {
+  background: #f6f4f2;
+  padding: 15px;
+  border: 1px solid #cdc5c5;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #cdc5c5;
+}
+
+th {
+  padding: 10px;
+  background: #ffe4e5;
+  border: 1px solid #cdc5c5;
+
+}
+
+td {
+  padding: 10px;
+  background: white;
+  border: 1px solid #cdc5c5;
+}
+
+/*=====================================
+ user / show
+=====================================*/
+
+.main-title {
+  margin-bottom: 50px;
+}
+
+/*=====================================
+ user / show
+=====================================*/

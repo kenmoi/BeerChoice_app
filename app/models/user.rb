@@ -7,6 +7,11 @@ class User < ApplicationRecord
   enum sex: { man: 0, woman: 1}
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+  attachment :profile_image
+  
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
 
 
   with_options presence: true do
