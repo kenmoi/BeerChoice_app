@@ -11,24 +11,24 @@
         <table>
           <tbody>
             <tr>
-              <th style="width: 50%;">ユーザー名</th>
+              <th style="width: 50%;" class="t-head">ユーザー名</th>
               <td style="width: 50%;"><%= @user.name %></td>
             </tr>
             <tr>
-              <th style="width: 50%;">メールアドレス</th>
+              <th style="width: 50%;" class="t-head">メールアドレス</th>
               <td style="width: 50%;"><%= @user.email %></td>
             </tr>
             <tr>
-              <th style="width: 50%;">生年月日</th>
+              <th style="width: 50%;" class="t-head">生年月日</th>
               <td style="width: 50%;"><%= @user.birth_date.strftime('%Y/%m/%d') %></td>
             </tr>
             <tr>
-              <th style="width: 50%;">性別</th>
+              <th style="width: 50%;" class="t-head">性別</th>
               <td style="width: 50%;"><%= @user.sex %></td>
             </tr>
             <tr>
-              <th style="width: 50%;">都道府県</th>
-              <td style="width: 50%;"><%= @user.prefecture_id %></td>
+              <th style="width: 50%;" class="t-head">都道府県</th>
+              <td style="width: 50%;"><%= @user.pref_name %></td>
             </tr>
           </tbody>
         </table>
@@ -36,19 +36,19 @@
         <table>
           <tbody>
             <tr>
-              <th>プロフィール写真</th>
+              <th class="t-head">プロフィール写真</th>
               <td><%= attachment_image_tag @user, :profile_image, :fill, 150, 150 %></td>
             </tr>
             <tr>
-              <th>好きなビアスタイル</th>
+              <th class="t-head">好きなビアスタイル</th>
               <td><%= @user.favorite_style %></td>
             </tr>
             <tr>
-              <th>お気に入りビール</th>
+              <th class="t-head">お気に入りビール</th>
               <td><%= simple_format(@user.favorite_beer) %></td>
             </tr>
             <tr>
-              <th>自己紹介・備考</th>
+              <th class="t-head">自己紹介・備考</th>
               <td><%= simple_format(@user.introduction) %></td>
             </tr>
           </tbody>

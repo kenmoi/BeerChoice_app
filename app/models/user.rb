@@ -4,9 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :beers, dependent: :destroy
   enum sex: { man: 0, woman: 1}
+  enum favorite_style: { ラガー: 1, エール: 2, ハイブリッド: 3, その他: 4 }
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+  delegate :pref_name, to: :prefecture
   attachment :profile_image
 
   def active_for_authentication?

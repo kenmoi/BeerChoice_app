@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'beers/new'
+  get 'beers/index'
+  get 'beers/show'
+  get 'beers/edit'
+  get 'users/:id/delete_image'  => 'users#delete_image', as: 'delete_image'
   devise_for :users, controllers: {
     registrations: 'users/registrations', sessions: 'users/sessions'
   }
@@ -7,5 +12,7 @@ Rails.application.routes.draw do
   get   'users/:id/mypage'  => 'users#mypage', as: 'mypage'
   get   'users/:id/cancel'  => 'users#cancel', as: 'cancel'
   patch 'users/:id/quit'     => 'users#quit', as: 'quit'
-  resources :users, only:[:show, :edit, :update, :destroy]
+  resources :users, only:[:show, :edit, :update]
+  get   'beers/score'  => 'users#score', as: 'score'
+  resources :beers
 end

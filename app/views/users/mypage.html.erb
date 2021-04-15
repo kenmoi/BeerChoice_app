@@ -11,8 +11,10 @@
               <% if @user.profile_image_id.present? %>
                <p class="col-md-4"><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, class: 'picture' %></p>
               <% end %>
-              <div class="col-md-6 mt-3"><strong class="text-danger"><%= @user.name %></strong>さん (<%= @user.prefecture_id %> <%= @user.sex %>)<br>
-               <p class="mt-2"><%= link_to "投稿する" %></p>
+              <div class="col-md-6 mt-3"><strong class="text-danger"><%= @user.name %></strong>さん (<%= @user.pref_name %> <%= @user.sex %>)<br>
+                <% if current_user == @user %>
+                 <p class="mt-2"><%= link_to "投稿する >>", new_beer_path, class: 'btn btn-outline-danger' %></p>
+                <% end %>
               </div>
             </div>
             <% if @user.introduction.present? %>

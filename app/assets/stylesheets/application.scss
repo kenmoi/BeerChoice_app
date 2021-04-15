@@ -44,7 +44,7 @@ main {
 }
 
 /*=====================================
- header / footer
+ header - footer
 =====================================*/
 
 header{
@@ -112,11 +112,10 @@ table {
   border: 1px solid #cdc5c5;
 }
 
-th {
+.t-head {
   padding: 10px;
   background: #ffe4e5;
   border: 1px solid #cdc5c5;
-
 }
 
 td {
@@ -126,7 +125,7 @@ td {
 }
 
 /*=====================================
- user / show
+ user / edit
 =====================================*/
 
 .main-title {
@@ -134,5 +133,35 @@ td {
 }
 
 /*=====================================
- user / show
+ beer / new
 =====================================*/
+
+.new-img {
+  height: 170px;
+  width: 180px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+.t-head2 {
+  padding: 20px 15px 15px 15px;
+  background: #ffe4e5;
+  border: 1px solid #cdc5c5;
+}
+
+.explanation {
+  font-size: 150%;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+/*=====================================
+ beer / index
+=====================================*/
+
+.list {
+  background: #f6f4f2;
+  padding: 15px;
+  border: 1px solid #cdc5c5;
+}

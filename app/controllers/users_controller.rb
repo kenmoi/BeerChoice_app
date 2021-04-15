@@ -32,12 +32,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
+  def delete_image
     @user = User.find(params[:id])
-    @image = @user.profile_image.id
-    @image.destroy
+    @user.profile_image = nil
+    @user.save!
     flash[:notice] = "プロフィール画像を削除しました。"
-    redirect_to edit_user_path(@user)
+    render :action => 'edit'
+    return
   end
 
   def cancel

@@ -29,7 +29,7 @@
                     <%= link_to "マイページ", mypage_path(current_user), :style =>"color:white;" %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "ビール投稿一覧", :style =>"color:white;" %>
+                    <%= link_to "ビール投稿一覧", beers_path, :style =>"color:white;" %>
                   </li>
                   <li class="nav-item">
                     <%= link_to "投稿者一覧", :style =>"color:white;"%>
@@ -41,7 +41,7 @@
               <!-- ログインしてない時 -->
                 <div class="navbar-nav">
                   <li class="nav-item">
-                    <%= link_to "ビール投稿一覧", :style =>"color:white;" %>
+                    <%= link_to "ビール投稿一覧", beers_path, :style =>"color:white;" %>
                   </li>
                   <li class="nav-item">
                     <%= link_to "投稿者一覧", :style =>"color:white;" %>

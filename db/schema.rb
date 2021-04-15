@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_071224) do
+ActiveRecord::Schema.define(version: 2021_04_14_131306) do
+
+  create_table "beers", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "image_id"
+    t.string "feature"
+    t.string "name", null: false
+    t.integer "style", default: 0, null: false
+    t.integer "retailer", default: 0, null: false
+    t.string "origin"
+    t.string "abv"
+    t.text "explanation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -18,9 +32,9 @@ ActiveRecord::Schema.define(version: 2021_04_09_071224) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
-    t.date "birth_date"
-    t.integer "sex"
+    t.string "name", null: false
+    t.date "birth_date", null: false
+    t.integer "sex", null: false
     t.integer "prefecture_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
