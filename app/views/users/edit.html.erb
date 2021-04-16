@@ -10,19 +10,19 @@
           <tbody>
             <tr>
               <th style="width: 50%;" class="t-head">ユーザー名</th>
-              <td style="width: 50%;"><%= f.text_field :name, autofocus: true, class: 'form-control' %></td>
+              <td style="width: 50%;" class="t-body2"><%= f.text_field :name, autofocus: true, class: 'form-control' %></td>
             </tr>
             <tr>
               <th style="width: 50%;" class="t-head">メールアドレス</th>
-              <td style="width: 50%;"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %></td>
+              <td style="width: 50%;" class="t-body2"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %></td>
             </tr>
             <tr>
               <th style="width: 50%;" class="t-head">生年月日</th>
-              <td style="width: 50%;"><%= f.date_select :birth_date, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 20), default: Date.new(1990, 1, 1) %></td>
+              <td style="width: 50%;" class="t-body2"><%= f.date_select :birth_date, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 20), default: Date.new(1990, 1, 1) %></td>
             </tr>
             <tr>
               <th style="width: 50%;" class="t-head">性別</th>
-              <td style="width: 50%; padding-bottom: 0;">
+              <td style="width: 50%; padding-bottom: 0;" class="t-body2">
                 <%= f.label :man, "男性" %>
                 <%= f.radio_button :sex, :man %>
                 <%= f.label :woman, "女性"  %>
@@ -31,7 +31,7 @@
             </tr>
             <tr>
               <th style="width: 50%;" class="t-head">都道府県</th>
-              <td style="width: 50%;"><%= f.collection_select :prefecture_id, Prefecture.all, :id, :pref_name, {include_blank: "---"}, class: 'form-control' %></td>
+              <td style="width: 50%;" class="t-body2"><%= f.collection_select :prefecture_id, Prefecture.all, :id, :pref_name, {include_blank: "---"}, class: 'form-control' %></td>
             </tr>
           </tbody>
         </table>
@@ -40,7 +40,7 @@
           <tbody>
             <tr>
               <th class="t-head">プロフィール写真</th>
-              <td>
+              <td class="t-body2">
                 <% if @user.profile_image_id.present? %>
                   <%= attachment_image_tag @user, :profile_image, :fill, 150, 150 %><br>
                   <%= link_to '削除', delete_image_path(@user), class: 'text-secondary' %><br>
@@ -50,15 +50,15 @@
             </tr>
             <tr>
               <th class="t-head">好きなビアスタイル</th>
-              <td><%= f.select :favorite_style, [["ラガー"], ["エール"], ["ハイブリッド"], ["その他"]], include_blank: "選択して下さい" %></td>
+              <td class="t-body2"><%= f.select :favorite_style, [["ラガー"], ["エール"], ["ハイブリッド"], ["その他"]], include_blank: "選択して下さい" %></td>
             </tr>
             <tr>
               <th class="t-head">お気に入りビール</th>
-              <td><%= f.text_area :favorite_beer, class: 'form-control' %></td>
+              <td class="t-body2"><%= f.text_area :favorite_beer, class: 'form-control' %></td>
             </tr>
             <tr>
               <th class="t-head">自己紹介・備考</th>
-              <td><%= f.text_area :introduction, class: 'form-control' %></td>
+              <td class="t-body2"><%= f.text_area :introduction, class: 'form-control' %></td>
             </tr>
           </tbody>
         </table>

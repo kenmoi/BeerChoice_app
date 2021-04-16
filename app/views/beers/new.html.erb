@@ -10,31 +10,31 @@
           <tbody>
             <tr>
               <th style="width: 25%;" class="t-head2"><%= f.label :name, "ビール名" %></th>
-              <td style="width: 85%;"><%= f.text_field :name, class: 'form-control' %></td>
+              <td style="width: 85%;" class="t-body2"><%= f.text_field :name, class: 'form-control' %></td>
             </tr>
             <tr>
               <th style="width: 25%;" class="t-head2"><%= f.label :feature, "おすすめポイント" %></th>
-              <td style="width: 85%;"><%= f.text_field :feature, class: 'form-control' %></td>
+              <td style="width: 85%;" class="t-body2"><%= f.text_field :feature, class: 'form-control' %></td>
             </tr>
             <tr>
               <th style="width: 25%;" class="t-head2"><%= f.label :style, "ビールスタイル" %></th>
-              <td style="width: 85%;"><%= f.select :style, [["ラガー"], ["エール"], ["ハイブリッド"], ["その他"]], include_blank: "選択して下さい" %></td>
+              <td style="width: 85%;" class="t-body2"><%= f.select :style, [["ラガー"], ["エール"], ["ハイブリッド"], ["その他"]], include_blank: "選択して下さい" %></td>
             </tr>
             <tr>
               <th style="width: 25%;" class="t-head2"><%= f.label :retailer, "購入場所" %></th>
-              <td style="width: 85%;"><%= f.select :retailer, [["専門店"], ["コンビニ・スーパー"], ["通販サイト"], ["その他"]], include_blank: "選択して下さい" %></td>
+              <td style="width: 85%;" class="t-body2"><%= f.select :retailer, [["専門店"], ["コンビニ・スーパー"], ["通販サイト"], ["その他"]], include_blank: "選択して下さい" %></td>
             </tr>
             <tr>
               <th style="width: 25%;" class="t-head2"><%= f.label :origin, "原産国" %></th>
-              <td style="width: 85%;"><%= f.text_field :origin, class: 'form-control' %></td>
+              <td style="width: 85%;" class="t-body2"><%= f.text_field :origin, class: 'form-control' %></td>
             </tr>
             <tr>
               <th style="width: 25%;" class="t-head2"><%= f.label :abv, "度数" %></th>
-              <td style="width: 85%;"><%= f.text_field :abv %> ％</td>
+              <td style="width: 85%;" class="t-body2"><%= f.text_field :abv %> ％</td>
             </tr>
             <tr>
               <th style="width: 25%;" class="t-head2"><%= f.label :image_id, "ビール画像" %></th>
-              <td style="width: 85%;">
+              <td style="width: 85%;" class="t-body2">
                 <%= f.attachment_field :image, placeholder: "ビール画像" %>
                 <div id="new-image"></div>
               </td>
@@ -42,7 +42,7 @@
           </tbody>
         </table>
         <section>
-          <h2 class="explanation mb-0"><%= f.label :explanation, "概要" %></h2>
+          <h2 class="explanation mb-0"><%= f.label :explanation, "紹介文" %></h2>
           <p class="pl-2 m-0 ">感想や詳細などがあればお書きください。(右下の外枠から枠を広げることができます)</p>
           <div class="field">
             <%= f.text_area :explanation, class: 'form-control' %>

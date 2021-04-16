@@ -1,0 +1,7 @@
+<% if beer.favorited_by?(current_user) %>
+  <%= link_to "いいね♥", beer_favorites_path(beer), class: "red-btn", method: :delete, remote: true %>
+  <span style="font-size: 140%;"><%= beer.favorites.count %></span>
+<% else %>
+  <%= link_to "いいね♡", beer_favorites_path(beer), class: "not-btn", method: :post, remote: true  %>
+  <span style="font-size: 140%;"><%= beer.favorites.count %></span>
+<% end %>

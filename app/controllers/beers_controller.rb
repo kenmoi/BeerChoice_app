@@ -24,6 +24,7 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
+    @user = @beer.user
   end
 
   def edit
@@ -33,6 +34,10 @@ class BeersController < ApplicationController
   end
 
   def destroy
+    beer = Beer.find(params[:id])
+    beer.destroy
+    flash[:notice] = "投稿を削除しました！"
+    redirect_to beers_path
   end
 
   private

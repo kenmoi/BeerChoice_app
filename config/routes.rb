@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get   'users/:id/mypage'  => 'users#mypage', as: 'mypage'
   get   'users/:id/cancel'  => 'users#cancel', as: 'cancel'
-  patch 'users/:id/quit'     => 'users#quit', as: 'quit'
+  patch 'users/:id/quit'    => 'users#quit', as: 'quit'
   resources :users, only:[:show, :edit, :update]
   get   'beers/score'  => 'users#score', as: 'score'
-  resources :beers
+  resources :beers do
+    resource :favorites, only: [:create, :destroy]
+  end
 end

@@ -118,7 +118,7 @@ table {
   border: 1px solid #cdc5c5;
 }
 
-td {
+.t-body {
   padding: 10px;
   background: white;
   border: 1px solid #cdc5c5;
@@ -164,4 +164,126 @@ td {
   background: #f6f4f2;
   padding: 15px;
   border: 1px solid #cdc5c5;
+}
+
+/*=====================================
+ beer / show
+=====================================*/
+
+.details {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.details-box {
+  padding: 20px 15px 15px 15px;
+  background: #fff;
+  border: 1px solid #cdc5c5;
+  box-shadow: 0 10px 10px #666666;
+}
+
+.headline {
+  font-size: 150%;
+  font-weight: 800;
+}
+
+.favorite-btn {
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.red-btn {
+  font-size: 140%;
+  color: red;
+}
+
+.not-btn {
+  font-size: 140%;
+
+}
+
+ul, li {
+  list-style: none;
+}
+
+li {
+  font-size: 15px;
+  margin-right: 20px;
+}
+
+.line {
+  display: flex;
+}
+
+.time {
+  margin-left: auto;
+}
+
+.content-box {
+  display: flex;
+}
+
+.image-box {
+  width: 50%;
+}
+
+.image-picture {
+  border-radius: 10px;
+  border: 6px solid #fff;
+  box-shadow: 0 0 1px;
+}
+
+.beer-text {
+  margin-top: 10px;
+  width: 50%;
+  margin-left: 15px;
+  margin-right: 10px;
+}
+
+.point {
+  border: 1px solid #d2c8be;
+  border-radius: 4px;
+  padding: 10px;
+  background: #FFFCDB;
+  margin-bottom: 20px;
+}
+
+.point-title {
+  border-bottom: 1px solid #DDDDDD;
+  padding-bottom: 1px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 80%;
+  color: #5a320a;
+}
+
+.point-text {
+  margin-bottom: 0;
+}
+
+.t-head2 {
+  padding: 10px;
+  background: #ffe4e5;
+  border: 1px solid #cdc5c5;
+  width: 35%;
+}
+
+.t-body2 {
+  padding: 10px;
+  background: white;
+  border: 1px solid #cdc5c5;
+  width: 60%;
+}
+
+.text-title {
+  font-size: 140%;
+  margin-left: 30px;
+}
+
+.text-box {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px 10px 0 10px;
+  border: 1px solid #d2c8be;
+  background: #FFFCDB;
 }

@@ -1,14 +1,64 @@
 <div class="container">
   <div class="row mx-auto">
-    <div class="col-md-11">
-      <div class="details">
-        <div class="details_contain">
-          <div="details_head">
-            <h2 class="headline"></h2>
+    <div class="col-md-12">
+      <div class="details col-md-11">
+        <div class="details-box">
+          <div id="beer_<%= @beer.id %>">
+            <div class="head d-flex">
+              <h2 class="headline ml-2"><i class="fas fa-beer text-warning"></i> <%= @beer.name %></h2>
+              <p class="favorite-btn"><%= render 'favorites/favorite-btn', beer: @beer %></p>
+            </div>
+            <ul class="line">
+              <li>
+                <span class="bg-info text-center text-white p-1 mr-1">ユーザー名</span>
+                <%= link_to mypage_path, class: 'text-black-50 border-bottom' do %>
+                 <%= @beer.user.name %>さん
+                <% end %>
+              </li>
+              <li><span class="bg-info text-center text-white p-1 mr-2">スタイル</span><%= @beer.style %></li>
+              <li><span class="bg-info text-center text-white p-1 mr-2">購入場所</span><%= @beer.retailer %></li>
+              <li class="time"><%= @beer.created_at.strftime('%Y/%m/%d %H:%M:%S') %> 投稿</li>
+            </ul>
           </div>
+          <div class="content-box">
+            <div class="image-box">
+              <div class="beer-image"><%= attachment_image_tag @beer, :image, :fill, 450, 360, fallback: "no_image.jpg", size:'450x360',class: 'image-picture' %></div>
+            </div>
+            <div class="beer-text">
+              <div class="point">
+                <p class="point-title">&nbsp;✔️ ポイント</p>
+                <p class="point-text"><%= @beer.feature %></p>
+              </div>
+              <table>
+                <tbody>
+                  <tr>
+                    <th class="t-head2">原産国</th>
+                    <td class="t-body2"><%= @beer.origin %></td>
+                  </tr>
+                  <tr>
+                    <th class="t-head2">アルコール度数</th>
+                    <td class="t-body2"><%= @beer.abv %> %</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <% if @beer.explanation.present? %>
+            <div class="introduction mt-3">
+              <h2 class="text-title">紹介文</h2>
+              <div class="text-box">
+                <P class="mt-0 mb-0"><%= simple_format(@beer.explanation) %></P>
+              </div>
+            </div>
+          <% end %>
+          <% if current_user == @user %>
+            <div class="d-flex mt-4">
+               <p class="mx-auto"><%= link_to "編　集", edit_beer_path(@beer), class: 'btn btn-success' %></p>
+               <p class="mx-auto"><%= link_to '削　除', beer_path(@beer), method: :delete, data:{ confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %></p>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-  <div class=""></div>
 </div>
