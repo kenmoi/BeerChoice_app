@@ -1,5 +1,6 @@
 class Beer < ApplicationRecord
   belongs_to :user
+  has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   attachment :image
   enum style: { ラガー: 1, エール: 2, ハイブリッド: 3, その他: 4 }, _prefix: true

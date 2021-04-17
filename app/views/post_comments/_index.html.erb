@@ -1,0 +1,50 @@
+  <% comments.each do |post_comment| %>
+    <div class="row user-comment-box">
+      <div class="col-md-9 comment-line">
+        <div class="comment-area">
+          <p class="cmment-content"><%= simple_format(post_comment.comment) %></p>
+        </div>
+        <div class="user-info">
+          <div class="comment-time text-black-50">
+            <div class="d-flex ml-3 pt-1">
+              <span id="star-rate-<%= post_comment.id %>">
+                <script>
+                  $('#star-rate-<%= post_comment.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: <%= post_comment.rate %>,
+                  });
+                </script>
+              </span>
+               &thinsp; ( <%= post_comment.rate %>点 )
+            　<span class="comment-time-set"><%= post_comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %> 投稿</span>
+            </div>
+          </div>
+          <p class="cmment-name">
+            <span class="text-black-50 ">by</span>
+            <%= link_to mypage_path(post_comment), class: 'text-black-50 border-bottom' do %>
+              <%= post_comment.user.name %>
+            <% end %>
+            <span class="comment-delete">
+              <% if post_comment.user == current_user %>
+                <%= link_to "コメント削除", beer_post_comment_path(post_comment.beer, post_comment), method: :delete, remote: true, class: 'text-black-50 border-bottom' %>
+              <% end %>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if comments.size > 9 %>
+    <div class="row user-comment-box">
+      <div class="mx-col-md-9 page-line">
+        <div class="page-area">
+          <P class="cmment-content"><%= paginate comments %></P>
+        </div>
+      </div>
+    </div>
+  <% end %>

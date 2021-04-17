@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row mx-auto">
+<div class="container pb-5">
+  <div class="row mx-auto" style="margin-bottom: 40px;">
     <div class="col-md-12">
       <div class="details col-md-11">
         <div class="details-box">
@@ -43,6 +43,17 @@
               </table>
             </div>
           </div>
+          
+          
+          <div class="">
+            <div id="star-rate-<%= @comment %>')">
+              
+              
+            </div>
+          </div>
+          
+          
+          
           <% if @beer.explanation.present? %>
             <div class="introduction mt-3">
               <h2 class="text-title">紹介文</h2>
@@ -53,12 +64,73 @@
           <% end %>
           <% if current_user == @user %>
             <div class="d-flex mt-4">
-               <p class="mx-auto"><%= link_to "編　集", edit_beer_path(@beer), class: 'btn btn-success' %></p>
-               <p class="mx-auto"><%= link_to '削　除', beer_path(@beer), method: :delete, data:{ confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %></p>
+              <p class="mx-auto"><%= link_to "編　集", edit_beer_path(@beer), class: 'btn btn-success' %></p>
+              <p class="mx-auto"><%= link_to '削　除', beer_path(@beer), method: :delete, data:{ confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %></p>
             </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+  <% if current_user != @user %>
+    <div class="row comment-box">
+      <div class="main-title col-md-9 comment-set">
+        <h2 class="comment-title">
+          <span class="new">投稿の感想やコメントを伝えよう <i class="far fa-comment-dots"></i></span>
+        </h2>
+        <%= form_with model:[@beer,@post_comment] do |f| %>
+          <div class="commment-back">
+            <div id="star">
+              <%= f.label :rate,'評 価', class:'rate-title mr-3 pt-2' %>
+              <span class="rate-star"><%= f.hidden_field :rate, id: :review_star %></span>
+            </div>
+            <div class="post-comment-area">
+              <%= f.text_area :comment, placeholder: "コメントを入力", class: 'form-control' %>
+            </div>
+            <div class="row mt-3">
+             <%= f.submit '投　稿', class: 'btn btn-danger mx-auto h3' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div id="beer_<%= @beer.id %>">
+    <div class="row user-comment-box">
+      <div class="col-md-9 user-comment-set">
+        <h2 class="user-comment-title">
+          <span class="comments-count">コメント<%= @beer.post_comments.count %>件</span> <i class="far fa-comment-dots"></i>
+        </h2>
+      </div>
+    </div>
+    <div class="post_comments">
+      <%= render 'post_comments/index', comments: @comments %>
+    </div>
+  </div>
 </div>
+
+<!--コメント投稿フォームのスクリプト-->
+<script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'post_comment[rate]',
+    half: true,
+  });
+</script>
+
+
+<!--評価の平均値のスクリプト-->
+                <script>
+                  $('#star-rate-<%= @comment %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    // score: <%#= post_comment.rate %>,
+                  });
+                </script>

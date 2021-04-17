@@ -1,6 +1,6 @@
-if (document.URL.match(/new/)){
-  document.addEventListener('DOMContentLoaded', () => {
-    const createImageHTML = (blob) => {
+/*global $*/
+$(document).on("turbolinks:load",function(){
+      const createImageHTML = (blob) => {
       const imageElement = document.getElementById('new-image');
       const blobImage = document.createElement('img');
       blobImage.setAttribute('class', 'new-img'),
@@ -19,4 +19,3 @@ if (document.URL.match(/new/)){
       createImageHTML(blob);
     });
   });
-}

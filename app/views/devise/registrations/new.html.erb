@@ -11,15 +11,15 @@
             <tbody>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :name, "ユーザー名" %></th>
-                <td style="width: 50%;"><%= f.text_field :name, autofocus: true, class: 'form-control' %></td>
+                <td style="width: 50%;" class="t-body2"><%= f.text_field :name, autofocus: true, class: 'form-control' %></td>
               </tr>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :email, "Eメール" %></th>
-                <td style="width: 50%;"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %></td>
+                <td style="width: 50%;" class="t-body2"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %></td>
               </tr>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :sex, "性別" %></th>
-                <td style="width: 50%; padding-bottom: 0;">
+                <td style="width: 50%; padding-bottom: 0;" class="t-body2">
                   <%= f.label :man, "男性" %>
                   <%= f.radio_button :sex, :man %>
                   <%= f.label :woman, "女性"  %>
@@ -28,15 +28,15 @@
               </tr>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :birth_date, "生年月日" %></th>
-                <td style="width: 50%;"><%= f.date_select :birth_date, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 20), default: Date.new(1990, 1, 1) %></td>
+                <td style="width: 50%;" class="t-body2"><%= f.date_select :birth_date, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 20), default: Date.new(1990, 1, 1) %></td>
               </tr>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :prefecture_id, "都道府県" %></th>
-                <td style="width: 50%;"><%= f.collection_select :prefecture_id, Prefecture.all, :id, :pref_name, {include_blank: "---"}, class: 'form-control' %></td>
+                <td style="width: 50%;" class="t-body2"><%= f.collection_select :prefecture_id, Prefecture.all, :id, :pref_name, {include_blank: "---"}, class: 'form-control' %></td>
               </tr>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :password, "パスワード" %></th>
-                <td style="width: 50%;">
+                <td style="width: 50%;" class="t-body2">
                   <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>
                   <% end %><br />
@@ -45,7 +45,7 @@
               </tr>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :password_confirmation, "パスワード（確認）" %></th>
-                <td style="width: 50%;"><%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %></td>
+                <td style="width: 50%;" class="t-body2"><%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %></td>
               </tr>
             </tbody>
           </table>

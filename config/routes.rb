@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get   'beers/score'  => 'users#score', as: 'score'
   resources :beers do
     resource :favorites, only: [:create, :destroy]
+    resources :post_comments, only: [:create, :destroy]
   end
 end

@@ -44,6 +44,23 @@ main {
 }
 
 /*=====================================
+  pagination
+=====================================*/
+
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+
+.pagination>.active>a {
+  padding: 4px;
+  background: #93c9ff;
+  border-radius: 15px;
+  color: #fff;
+}
+
+/*=====================================
  header - footer
 =====================================*/
 
@@ -286,4 +303,140 @@ li {
   padding: 10px 10px 0 10px;
   border: 1px solid #d2c8be;
   background: #FFFCDB;
+}
+
+.comment-box {
+  width: 100%;
+  margin-left: 90px;
+}
+
+.comment-set {
+  background: #fff;
+  padding: 0 0 15px;
+  border: 1px solid #cdc5c5;
+}
+
+.comment-title {
+  width: 100%;
+  color: #5a320a;
+  font-size: 130%;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 7px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  border-top: 3px solid #5a320a;
+  border-bottom: 1px solid #d2c8be;
+}
+
+.commment-back {
+  padding: 20px 15px 5px 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background: #FFFCDB;
+  border-radius: 12px;
+}
+
+.user-comment-box {
+  width: 100%;
+  margin-left: 90px;
+}
+
+.user-comment-set {
+  background: #fff;
+  padding: 0;
+  border: 2px solid #cdc5c5;
+}
+
+.user-comment-title {
+  width: 100%;
+  color: #5a320a;
+  font-size: 130%;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-left: 20px;
+  border-top: 3px solid #5a320a;
+  padding-bottom: 2px;
+}
+
+.comment-line {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #aaa;
+}
+
+.post-comment-area {
+  background: #FFFCDB;
+  padding: 0px 15px 0px;
+  border-radius: 12px;
+}
+
+.comment-area {
+  background: #FFFCDB;
+  padding: 15px 15px 3px;
+  border-radius: 12px;
+}
+
+.cmment-content {
+  margin-bottom: 0;
+}
+
+.cmment-name {
+  margin-left: 460px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.comment-time {
+  text-align: right;
+}
+
+.comment-time-set {
+  width: 50%;
+  margin-left: 143px;
+}
+
+.comment-delete {
+  float: right;
+  margin-right: 15px;
+}
+
+.star-font {
+  float: left;
+  margin-left: 10px;
+}
+
+.page-area {
+  background: #fff;
+  padding: 15px 15px 1px;
+  border-radius: 23px;
+  margin-top: 12px;
+}
+
+/*=====================================
+  rate
+=====================================*/
+
+#star {
+  color: #5a320a;
+  margin-left: 22px;
+  font-size: 155%;
+  font-weight: bold;
+  padding: 0 15px 20px 17px;
+
+}
+
+#star img {
+  width: 5%;
+}
+
+.rate-title {
+  height: 30px;
+　line-height: 30px;
+
+}
+
+.rate-star {
+  width: 120%;
+  height: 120%;
 }

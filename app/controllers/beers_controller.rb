@@ -24,13 +24,30 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
+    @comments = @beer.post_comments.all.order(created_at: :desc).page(params[:page]).per(10)
+    @commment = PostComment.where(beer_id: @beer.id).average(:rate)
     @user = @beer.user
+    @post_comment = PostComment.new
   end
 
   def edit
+    @beer = Beer.find(params[:id])
+    if current_user == @beer.user
+      @beer = Beer.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def update
+    @beer = Beer.find(params[:id])
+    if @beer.update(beer_params)
+      flash[:notice] = "投稿内容を更新しました！"
+      redirect_to beer_path(@beer)
+    else
+      flash[:alert] = "入力に間違いがあります！"
+      render :edit
+    end
   end
 
   def destroy

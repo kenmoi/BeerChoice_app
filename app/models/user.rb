@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :beers, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   enum sex: { man: 0, woman: 1}
   enum favorite_style: { ラガー: 1, エール: 2, ハイブリッド: 3, その他: 4 }
