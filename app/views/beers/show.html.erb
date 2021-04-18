@@ -11,7 +11,7 @@
             <ul class="line">
               <li>
                 <span class="bg-info text-center text-white p-1 mr-1">ユーザー名</span>
-                <%= link_to mypage_path, class: 'text-black-50 border-bottom' do %>
+                <%= link_to mypage_path(@beer.user), class: 'text-black-50 border-bottom' do %>
                  <%= @beer.user.name %>さん
                 <% end %>
               </li>
