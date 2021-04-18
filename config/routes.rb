@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get   'users/:id/cancel'  => 'users#cancel', as: 'cancel'
   patch 'users/:id/quit'    => 'users#quit', as: 'quit'
   resources :users, only:[:show, :edit, :update]
-  get   'beers/score'  => 'users#score', as: 'score'
   resources :beers do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]

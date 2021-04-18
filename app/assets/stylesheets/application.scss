@@ -36,7 +36,6 @@
 main {
   background-color: #FFFCDB;
   min-height: calc(100vh - 7rem);
-  padding-top: 5px;
 }
 
 .wrap {
@@ -77,6 +76,86 @@ header{
 footer{
    margin-top: auto;
    background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
+}
+
+/*=====================================
+  top
+=====================================*/
+
+#mv {
+  background-image: url(beer-mv.jpg);
+  background-size: cover;
+  background-position: 50% 60%;
+  width: 100%;
+  height: 670px;
+  text-align: right;
+}
+
+.mv-title {
+  color: #fafafa;
+  padding-top: 200px;
+  font-size: 64px;
+}
+
+.mv-text {
+  color: #fafafa;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+#about {
+  margin-top: 90px;
+  padding-bottom: 90px;
+}
+
+.about-box {
+  width: 750px;
+  margin-left: 170px;
+  background: #fff;
+  padding: 20px 20px 0 20px;
+  border-radius: 13px;
+}
+
+.heading {
+  text-align: center;
+  margin-right: 50px;
+  font-size: 32px;
+  color: #000000;
+  font-weight: bold;
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 70px;
+  background-color: #ec715f;
+  margin: 8px auto 0 auto;
+}
+
+.about-text {
+  margin-left: 110px;
+}
+
+.heading-text {
+  font-size: 16px;
+  padding-top: 30px;
+  padding-bottom: 3px;
+  color: #5a320a;
+  text-align: left;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.content-text {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: serif;
+}
+
+.advertising {
+  letter-spacing: 4px;
+  margin-left: 38px;
 }
 
 /*=====================================
@@ -193,7 +272,7 @@ table {
 }
 
 .details-box {
-  padding: 20px 15px 15px 15px;
+  padding: 20px 15px 24px 15px;
   background: #fff;
   border: 1px solid #cdc5c5;
   box-shadow: 0 10px 10px #666666;
@@ -417,26 +496,76 @@ li {
   rate
 =====================================*/
 
-#star {
+.score-box {
+  padding: 15px 0 15px 15px;
+  background: #FFFCDB;
+  margin-top: 20px;
+  border-radius: 13px;
+  margin-right: 130px;
+}
+
+.score-title {
+  font-size: 120%;
+  font-weight: bold;
+  color: #5a320a;
+}
+
+.star-text {
   color: #5a320a;
   margin-left: 22px;
-  font-size: 155%;
+  font-size: 165%;
   font-weight: bold;
-  padding: 0 15px 20px 17px;
+  padding: 0 15px 16px 17px;
+}
 
+#star {
+  color: #5a320a;
+  width: 37%;
+  font-weight: bold;
+  padding: 0 15px 18px 17px;
 }
 
 #star img {
-  width: 5%;
+  width: 15%;
+  margin-bottom: 7px;
 }
 
 .rate-title {
   height: 30px;
 　line-height: 30px;
-
 }
 
 .rate-star {
   width: 120%;
   height: 120%;
 }
+
+.average-box {
+  display: flex;
+  margin-top: 15px;
+  margin-left: 18px;
+}
+
+.average-box img {
+  width: 17%;
+}
+
+#star-rate-average {
+  width: 65%;
+  height: auto;
+}
+
+.average-font {
+ font-size: 120%;
+ font-weight: bold;
+ color: #5a320a;
+ margin-top: 1px;
+}
+
+.average-text {
+  font-size: 106%;
+  margin-top: 14px;
+  margin-left: 15px;
+  font-family: arial;
+}
+

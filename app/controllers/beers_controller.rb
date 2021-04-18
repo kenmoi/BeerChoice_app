@@ -25,7 +25,10 @@ class BeersController < ApplicationController
   def show
     @beer = Beer.find(params[:id])
     @comments = @beer.post_comments.all.order(created_at: :desc).page(params[:page]).per(10)
-    @commment = PostComment.where(beer_id: @beer.id).average(:rate)
+    @average = PostComment.where(beer_id: @beer.id).average(:rate)
+    if @average.nil?
+      @average = 0
+    end
     @user = @beer.user
     @post_comment = PostComment.new
   end

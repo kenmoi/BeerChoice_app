@@ -41,19 +41,18 @@
                   </tr>
                 </tbody>
               </table>
+              <div class="score-box">
+                <div class="score-head">
+                  <h2 class="score-title">&nbsp;<i class="fas fa-users"></i>&nbsp;ユーザーレビュー</h2>
+                  <div class="average-box">
+                    <div id="star-rate-<%="average"%>"></div>
+                    <div class="average-font">(平均)</div>
+                  </div>
+                  <div class="average-text">星５つ中の <%= @average.floor(1).to_f %></div>
+                </div>
+              </div>
             </div>
           </div>
-          
-          
-          <div class="">
-            <div id="star-rate-<%= @comment %>')">
-              
-              
-            </div>
-          </div>
-          
-          
-          
           <% if @beer.explanation.present? %>
             <div class="introduction mt-3">
               <h2 class="text-title">紹介文</h2>
@@ -80,9 +79,11 @@
         </h2>
         <%= form_with model:[@beer,@post_comment] do |f| %>
           <div class="commment-back">
-            <div id="star">
-              <%= f.label :rate,'評 価', class:'rate-title mr-3 pt-2' %>
-              <span class="rate-star"><%= f.hidden_field :rate, id: :review_star %></span>
+            <div class="d-flex pt-2">
+              <div class="star-text"><%= f.label :rate,'評 価', class:'rate-title' %></div>
+              <div id="star">
+                <span class="rate-star"><%= f.hidden_field :rate, id: :review_star %></span>
+              </div>
             </div>
             <div class="post-comment-area">
               <%= f.text_area :comment, placeholder: "コメントを入力", class: 'form-control' %>
@@ -104,13 +105,14 @@
       </div>
     </div>
     <div class="post_comments">
-      <%= render 'post_comments/index', comments: @comments %>
+      <%= render 'post_comments/index', comments: @comments, beer_id: @beer.id %>
     </div>
   </div>
 </div>
 
 <!--コメント投稿フォームのスクリプト-->
 <script>
+　$('#star').empty();
   $('#star').raty({
     size     : 36,
     starOff:  '<%= asset_path('star-off.png') %>',
@@ -121,16 +123,16 @@
   });
 </script>
 
-
 <!--評価の平均値のスクリプト-->
-                <script>
-                  $('#star-rate-<%= @comment %>').raty({
-                    size: 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    half: true,
-                    readOnly: true,
-                    // score: <%#= post_comment.rate %>,
-                  });
-                </script>
+<script>
+  $('#star-rate-<%="average"%>').empty();
+  $('#star-rate-<%="average"%>').raty({
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: <%= @average %>,
+  });
+</script>

@@ -9,6 +9,7 @@
             <div class="d-flex ml-3 pt-1">
               <span id="star-rate-<%= post_comment.id %>">
                 <script>
+                　$('#star-rate-<%= post_comment.id %>').empty();
                   $('#star-rate-<%= post_comment.id %>').raty({
                     size: 36,
                     starOff:  '<%= asset_path('star-off.png') %>',
@@ -26,7 +27,7 @@
           </div>
           <p class="cmment-name">
             <span class="text-black-50 ">by</span>
-            <%= link_to mypage_path(post_comment), class: 'text-black-50 border-bottom' do %>
+            <%= link_to mypage_path(post_comment.user), class: 'text-black-50 border-bottom' do %>
               <%= post_comment.user.name %>
             <% end %>
             <span class="comment-delete">
@@ -39,11 +40,11 @@
       </div>
     </div>
   <% end %>
-  <% if comments.size > 9 %>
+  <% if comments.total_count > 10 %>
     <div class="row user-comment-box">
       <div class="mx-col-md-9 page-line">
         <div class="page-area">
-          <P class="cmment-content"><%= paginate comments %></P>
+          <P class="cmment-content"><%= paginate comments, params: {controller: 'beers', action: 'show', id: beer_id } %></P>
         </div>
       </div>
     </div>
