@@ -23,14 +23,19 @@ class BeersController < ApplicationController
   end
 
   def show
-    @beer = Beer.find(params[:id])
-    @comments = @beer.post_comments.all.order(created_at: :desc).page(params[:page]).per(10)
-    @average = PostComment.where(beer_id: @beer.id).average(:rate)
-    if @average.nil?
-      @average = 0
+    unless user_signed_in?
+      flash[:notice] = "こちらからご登録後に閲覧いただけます！"
+      redirect_to new_user_registration_path
+    else
+      @beer = Beer.find(params[:id])
+      @comments = @beer.post_comments.all.order(created_at: :desc).page(params[:page]).per(10)
+      @average = PostComment.where(beer_id: @beer.id).average(:rate)
+      if @average.nil?
+        @average = 0
+      end
+      @user = @beer.user
+      @post_comment = PostComment.new
     end
-    @user = @beer.user
-    @post_comment = PostComment.new
   end
 
   def edit

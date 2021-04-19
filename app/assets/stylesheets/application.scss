@@ -51,7 +51,6 @@ main {
   color: #696969;
 }
 
-
 .pagination>.active>a {
   padding: 4px;
   background: #93c9ff;
@@ -64,7 +63,6 @@ main {
 =====================================*/
 
 header{
-
    width: 100%;
    background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
 }
@@ -156,6 +154,80 @@ footer{
 .advertising {
   letter-spacing: 4px;
   margin-left: 38px;
+}
+
+#ranking {
+  margin-top: 90px;
+  padding-bottom: 70px;
+  width: 100%;
+}
+
+.rank-title-box {
+  width: 60%;
+  margin-left: 257px;
+  padding: 20px 15px 13px 15px;
+  text-align: center;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.rank-title {
+  font-weight: bold;
+  padding-right: 30px;
+  font-size: 30px;
+}
+
+.rank-area {
+  margin-top: 45px;
+  margin-right: 75px;
+  display: flex;
+}
+
+.rank-list-box {
+  width: 100%;
+  padding: 15px 15px 10px 15px;
+  background: #fff;
+  margin-right: 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px #666666;
+  border: 1px solid #cdc5c5;
+}
+
+.rank-head {
+  font-size: 130%;
+  margin-top: 4px;
+}
+
+.favorit-top {
+  margin-left: auto;
+  padding-right: 10px;
+  font-size: 140%;
+}
+
+.rank-name {
+  font-size: 130%;
+  font-weight: bold;
+}
+
+.top-score {
+  line-height: auto;
+  margin-left: 20px;
+  display: flex;
+}
+
+.top-star {
+  width: 65%;
+}
+
+.top-score img {
+  width: 15%;
+}
+
+.top-average {
+  line-height: 2.5em;
+  font-size: 110%;
+  
 }
 
 /*=====================================
@@ -568,4 +640,3 @@ li {
   margin-left: 15px;
   font-family: arial;
 }
-

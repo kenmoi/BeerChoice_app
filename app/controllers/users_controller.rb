@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
   def mypage
-    @user = User.find(params[:id])
+    unless user_signed_in?
+      flash[:notice] = "こちらからご登録後に閲覧いただけます！"
+      redirect_to new_user_registration_path
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   def show
@@ -25,7 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = "編集内容を保存しました。"
+      flash[:notice] = "編集内容を保存しました！"
       redirect_to user_path(@user)
     else
       render :edit
@@ -36,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.profile_image = nil
     @user.save!
-    flash[:notice] = "プロフィール画像を削除しました。"
+    flash[:notice] = "プロフィール画像を削除しました！"
     render :action => 'edit'
     return
   end
@@ -48,7 +53,7 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "ご利用いただきありがとうございました。またのお越しをお待ちしております。"
+    flash[:notice] = "ご利用いただきありがとうございました！またのお越しをお待ちしております！"
     redirect_to root_path
   end
 

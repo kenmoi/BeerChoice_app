@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
 
   with_options presence: true do
-    validates :name, length: { minimum: 1, maximum: 8 }
+    validates :name, length: { minimum: 1, maximum: 10 }, uniqueness: true
     validates :email, uniqueness: true
     validates :sex
     validates :birth_date
