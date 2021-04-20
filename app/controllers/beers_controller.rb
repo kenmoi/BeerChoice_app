@@ -19,7 +19,7 @@ class BeersController < ApplicationController
   end
 
   def index
-    @beers = Beer.all
+    @beers = Beer.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show
@@ -53,7 +53,7 @@ class BeersController < ApplicationController
       flash[:notice] = "投稿内容を更新しました！"
       redirect_to beer_path(@beer)
     else
-      flash[:alert] = "入力に間違いがあります！"
+      flash[:alert] = "入力に間違いがあります！(ビール名は15文字以内まで)"
       render :edit
     end
   end

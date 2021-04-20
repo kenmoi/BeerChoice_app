@@ -11,7 +11,7 @@ class Beer < ApplicationRecord
   end
 
   with_options presence: true do
-    validates :name, length: { minimum: 1, maximum: 20 }, uniqueness: true
+    validates :name, length: { minimum: 1, maximum: 15 }, uniqueness: true
     validates :style
     validates :retailer
   end

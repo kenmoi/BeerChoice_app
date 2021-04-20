@@ -185,7 +185,7 @@ footer{
 
 .rank-list-box {
   width: 100%;
-  padding: 15px 15px 10px 15px;
+  padding: 15px 15px 0 15px;
   background: #fff;
   margin-right: 20px;
   margin-left: 20px;
@@ -208,6 +208,16 @@ footer{
 .rank-name {
   font-size: 130%;
   font-weight: bold;
+  margin-bottom: 0;
+}
+
+.top-score-box {
+  border-radius: 28px;
+  padding: 13px 10px 11px 10px;
+  margin-right: 20px;
+  margin-left: 5px;
+  background: #FFFCDB;
+  margin-top: 8px;
 }
 
 .top-score {
@@ -217,17 +227,36 @@ footer{
 }
 
 .top-star {
-  width: 65%;
+  width: 70%;
 }
 
 .top-score img {
-  width: 15%;
+  width: 16%;
 }
 
 .top-average {
-  line-height: 2.5em;
+  line-height: 2.1em;
   font-size: 110%;
-  
+  font-weight: bold;
+  color: #5a320a;
+}
+
+.top-count {
+  margin-left: 20px;
+  font-size: 100%;
+  margin-top: 5px;
+}
+
+.top-user {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 25px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+.top-notice {
+  margin-left: 55px;
 }
 
 /*=====================================
@@ -236,6 +265,7 @@ footer{
 
 .main-title {
   text-align: left;
+  margin-bottom: 50px;
 }
 
 .page-title {
@@ -266,6 +296,46 @@ footer{
 }
 
 /*=====================================
+ user / index
+=====================================*/
+
+.user-index-title {
+  text-align: left;
+}
+
+.user-index-area {
+  width: 80%;
+  padding-bottom: 10px;
+  margin: 0 auto;
+}
+
+.index-list-box {
+  padding: 7px;
+  background: #fff;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px #666666;
+  border: 1px solid #cdc5c5;
+}
+
+.user-picture {
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.index-style-box {
+  border-radius: 28px;
+  // padding: 3px 5px 3px 5px 3px;
+  margin-right: 3px;
+  margin-left: 3px;
+  background: #FFFCDB;
+  margin-top: 8px;
+}
+
+/*=====================================
  user / show
 =====================================*/
 
@@ -290,14 +360,6 @@ table {
   padding: 10px;
   background: white;
   border: 1px solid #cdc5c5;
-}
-
-/*=====================================
- user / edit
-=====================================*/
-
-.main-title {
-  margin-bottom: 50px;
 }
 
 /*=====================================
@@ -328,10 +390,49 @@ table {
  beer / index
 =====================================*/
 
-.list {
-  background: #f6f4f2;
+.index-title {
+  font-size: 150%;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  border-bottom: 2px solid #573929;
+}
+
+.list-box {
+}
+
+.list-item {
+  display: flex;
+  background: #fff;
   padding: 15px;
-  border: 1px solid #cdc5c5;
+  border-radius: 50px;
+  margin-bottom: 8px;
+}
+
+.index-picture {
+  border-radius: 55%;
+  margin-left: 40px;
+}
+
+.index-text-box {
+  // margin-left: 40px;
+  float: left;
+}
+
+.index-text-box-2 {
+  float: right;
+}
+
+.item-title {
+  color: #5a320a;
+  font-size: 130%;
+  font-weight: bold;
+  padding-top: 6px;
+}
+
+.index-user-name {
+  padding-top: 7px;
 }
 
 /*=====================================

@@ -1,34 +1,64 @@
-
-
-
-
 <div class="container">
   <div class="row mx-auto">
     <div class="main-title col-md-11">
-      <h2 class="page-title">
+      <h2 class="index-title">
         <span class="post">投稿一覧</span>
       </h2>
-      <div class="list">
+      <div class="list-box">
       <% @beers.each do |beer| %>
-        <div class="list_item">
-          <div class="beer_image">
+
+
+
+        <div class="list-item">
+          <div class="list-beer-image">
             <%= link_to beer_path(beer.id), 'data-turbolinks': false do %>
-             <%= attachment_image_tag beer, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200' %>
+             <%= attachment_image_tag beer, :image, :fill, 140, 130, fallback: "no_image.jpg", size:'140x130', class: 'index-picture' %>
             <% end %>
           </div>
-          <div class="text">
-            <h2 class="item_title"><%= beer.name %></h2>
-            <span class="user_name">by <%= beer.user.name %></span>
-            <div class="beer_feature"><%= beer.feature %></div>
-            <div class="beer_style">スタイル：<%= beer.style %></div>
-            <div class="item_create"><%= beer.created_at.strftime('%Y/%m/%d %H:%M:%S') %> 投稿</div>
+
+
+
+          <div class="col-12">
+            <div class="col-12">
+              <h2 class="item-title">
+                &ensp;<i class="fas fa-beer text-warning"></i>
+                <%= link_to beer_path(beer.id), class: 'text-black-50 border-bottom' do %>
+                  <%= beer.name %>
+                <% end %>
+              </h2>
+            </div>
+
+            <div class="index-text-box col-md-6">
+              <div class="item-title-box">
+                <div class="index-user-name">by <%= beer.user.name %></div>
+              </div>
+              <div class="beer_feature"><%= beer.feature %></div>
+            </div>
+
+            <div class="index-text-box-2 col-md-6">
+              <div class="beer_style">スタイル：<%= beer.style %></div>
+              <div class="item_create"><%= beer.created_at.strftime('%Y/%m/%d %H:%M:%S') %> 投稿</div>
+            </div>
           </div>
+
+
         </div>
       <% end %>
       </div>
     </div>
   </div>
-  <!--<div class="row pb-4">-->
-  <!--  <div class="mx-auto"><%#= paginate @beers %></div>-->
-  <!--</div>-->
+
+
+
+  <% if @beers.total_count > 10 %>
+    <div class="row user-comment-box">
+      <div class="mx-col-md-9 page-line">
+        <div class="page-area">
+          <P class="cmment-content"><%= paginate @beers %></P>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
 </div>

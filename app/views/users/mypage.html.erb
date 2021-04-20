@@ -8,9 +8,7 @@
         <div class="profile">
           <div class="content">
             <div class="d-flex">
-              <% if @user.profile_image_id.present? %>
-               <p class="col-md-4"><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, class: 'picture' %></p>
-              <% end %>
+              <p class="col-md-4"><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150',  class: 'picture' %></p>
               <div class="col-md-6 mt-3"><strong class="text-danger"><%= @user.name %></strong>さん (<%= @user.pref_name %> <%= @user.sex %>)<br>
                 <% if current_user == @user %>
                  <p class="mt-2"><%= link_to "投稿する >>", new_beer_path, class: 'btn btn-outline-danger' %></p>

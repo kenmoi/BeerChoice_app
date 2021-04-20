@@ -54,43 +54,85 @@
                 <% end %>
               </p>
             </div>
-
-              <!--<div class="point mt-0">-->
-              <!--  <p class="point-title">&nbsp;✔️ ポイント</p>-->
-              <!--  <p class="point-text"><%#= beer.feature %></p>-->
-              <!--</div>-->
-
-            <div class="top-score">
-              <div id="star-rate-<%= beer.id %>" class="top-star"></div>
-              <script>
-                $('#star-rate-<%= beer.id %>').empty();
-                $('#star-rate-<%= beer.id %>').raty({
-                  size: 36,
-                  starOff:  '<%= asset_path('star-off.png') %>',
-                  starOn : '<%= asset_path('star-on.png') %>',
-                  starHalf: '<%= asset_path('star-half.png') %>',
-                  half: true,
-                  readOnly: true,
-                  score: <%= beer.post_comments.where(beer_id: beer.id).average(:rate).floor(1).to_f %>,
-                });
-              </script>
-              <div class="top-average"><%= beer.post_comments.where(beer_id: beer.id).average(:rate).floor(1).to_f %>点</div>
+            <div class="top-score-box">
+              <div class="top-score">
+                <div id="star-rate-<%= beer.id %>" class="top-star"></div>
+                <script>
+                  $('#star-rate-<%= beer.id %>').empty();
+                  $('#star-rate-<%= beer.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: <%= beer.post_comments.where(beer_id: beer.id).average(:rate).floor(1).to_f %>,
+                  });
+                </script>
+                <div class="top-average"><%= beer.post_comments.where(beer_id: beer.id).average(:rate).floor(1).to_f %>点</div>
+              </div>
+              <div class="top-count"><%= beer.post_comments.count %>件のレビュー</div>
             </div>
-            <div class=""><%= beer.post_comments.count %>件のレビュー</div>
-
-
-
-
            <%= link_to mypage_path(beer.user), class: 'text-black-50 border-bottom' do %>
-              <div class="d-flex">
-                <div><%= attachment_image_tag beer.user, :profile_image, :fill, 48, 48, fallback: "no_image.jpg", size:'48x48', class: 'picture' %></div>
-                <p><%= beer.user.name %></p>
+              <div class="top-user">
+                <div><%= attachment_image_tag beer.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40', class: 'picture' %></div>
+                <p>&thinsp;<%= beer.user.name %></p>
               </div>
             <% end %>
-
-
-
-
+            <%= link_to beer_path(beer), class: 'text-info' do %>
+              <span class="top-notice">詳細は投稿をクリックしてね！</span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="rank-area pt-3">
+      <div class="d-flex mx-auto">
+        <% @comment_ranks.each.with_index(1) do |beer, i| %>
+          <div class="rank-list-box">
+            <div class="d-flex">
+              <h3 class="rank-head">&nbsp;<i class="fas fa-users"></i>&nbsp;レビュー数&nbsp;第&nbsp;<%= i %>&nbsp;位</h3>
+              <span class="favorit-top">❤️ <%= beer.favorites.count %></span>
+            </div>
+            <%= link_to beer_path(beer) do %>
+              <div><%= attachment_image_tag beer, :image, :fill, 382, 274, fallback: "no_image.jpg", size:'352x244',class: 'image-picture' %></div>
+            <% end %>
+            <div class="pt-2">
+              <p class="rank-name">
+                &ensp;<i class="fas fa-beer text-warning"></i>
+                <%= link_to beer_path(beer), class: 'text-black-50 border-bottom' do %>
+                  <%= beer.name %>
+                <% end %>
+              </p>
+            </div>
+            <div class="top-score-box">
+              <div class="top-score">
+                <div id="star2-rate-<%= beer.id %>" class="top-star"></div>
+                <script>
+                  $('#star2-rate-<%= beer.id %>').empty();
+                  $('#star2-rate-<%= beer.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: <%= beer.post_comments.where(beer_id: beer.id).average(:rate).floor(1).to_f %>,
+                  });
+                </script>
+                <div class="top-average"><%= beer.post_comments.count %>件</div>
+              </div>
+              <div class="top-count">星５つ中の&thinsp;<%= beer.post_comments.where(beer_id: beer.id).average(:rate).floor(1).to_f %></div>
+            </div>
+           <%= link_to mypage_path(beer.user), class: 'text-black-50 border-bottom' do %>
+              <div class="top-user">
+                <div><%= attachment_image_tag beer.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40', class: 'picture' %></div>
+                <p>&thinsp;<%= beer.user.name %></p>
+              </div>
+            <% end %>
+            <%= link_to beer_path(beer), class: 'text-info' do %>
+              <span class="top-notice">詳細は投稿をクリックしてね！</span>
+            <% end %>
           </div>
         <% end %>
       </div>

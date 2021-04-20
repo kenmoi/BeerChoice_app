@@ -9,12 +9,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.order(created_at: :desc).page(params[:page]).per(8)
+  end
+
   def show
-    @user = User.find(params[:id])
-    if current_user == @user
-      @user = User.find(params[:id])
+    unless user_signed_in?
+      flash[:notice] = "こちらからご登録後に閲覧いただけます！"
+      redirect_to new_user_registration_path
     else
-      redirect_to mypage_path(current_user.id)
+      @user = User.find(params[:id])
+      if current_user == @user
+        @user = User.find(params[:id])
+      else
+        redirect_to mypage_path(current_user.id)
+      end
     end
   end
 
