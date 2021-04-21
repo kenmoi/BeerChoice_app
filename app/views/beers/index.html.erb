@@ -1,64 +1,62 @@
 <div class="container">
-  <div class="row mx-auto">
-    <div class="main-title col-md-11">
+  <div class="row mx-auto pb-5">
+    <div class="main-title col-11 mb-0">
       <h2 class="index-title">
         <span class="post">投稿一覧</span>
       </h2>
       <div class="list-box">
       <% @beers.each do |beer| %>
-
-
-
         <div class="list-item">
           <div class="list-beer-image">
             <%= link_to beer_path(beer.id), 'data-turbolinks': false do %>
-             <%= attachment_image_tag beer, :image, :fill, 140, 130, fallback: "no_image.jpg", size:'140x130', class: 'index-picture' %>
+             <%= attachment_image_tag beer, :image, :fill, 130, 120, fallback: "no_image.jpg", size:'130x120', class: 'index-picture' %>
             <% end %>
           </div>
-
-
-
-          <div class="col-12">
-            <div class="col-12">
-              <h2 class="item-title">
+          <div class="col-10">
+            <div class="col-9">
+              <div class="item-title">
                 &ensp;<i class="fas fa-beer text-warning"></i>
                 <%= link_to beer_path(beer.id), class: 'text-black-50 border-bottom' do %>
                   <%= beer.name %>
                 <% end %>
-              </h2>
-            </div>
-
-            <div class="index-text-box col-md-6">
-              <div class="item-title-box">
-                <div class="index-user-name">by <%= beer.user.name %></div>
               </div>
-              <div class="beer_feature"><%= beer.feature %></div>
             </div>
-
-            <div class="index-text-box-2 col-md-6">
-              <div class="beer_style">スタイル：<%= beer.style %></div>
-              <div class="item_create"><%= beer.created_at.strftime('%Y/%m/%d %H:%M:%S') %> 投稿</div>
+            <div class="index-text-box col-6">
+              <div class="index-beer-feature">
+                <p class="index-point-title">&nbsp;✔️ ポイント
+                  <%= link_to mypage_path(beer.user), class: 'text-black-50 border-bottom' do %>
+                  <span class="index-user-name">&nbsp;by&thinsp;<%= beer.user.name %></span>
+                  <% end %>
+                </p>
+                <% if beer.feature.present? %>
+                <p class="index-point-text"><%= beer.feature %></p>
+                <% else %>
+                <p class="index-point-text">なし</p>
+                <% end %>
+              </div>
+            </div>
+            <div class="index-text-box-2 col-6">
+              <% if beer.post_comments.present? %>
+              <div class="index-score-box">評価：<span class="index-beer-score"><%= beer.post_comments.where(beer_id: beer.id).average(:rate).floor(1) %></span><span class="index-max-score">&thinsp;/５点中</span></div>
+              <% else %>
+              <div class="index-score-box">評価：<span class="index-beer-score">0.0</span><span class="index-max-score">&thinsp;/５点中</span></div>
+              <% end %>
+              <div class="index-score-count mt-1"><%= beer.post_comments.count %>件のレビュー</div>
+              <div class="index-create text-black-50"><%= beer.created_at.strftime('%Y/%m/%d %H:%M:%S') %> 投稿</div>
             </div>
           </div>
-
-
         </div>
       <% end %>
       </div>
     </div>
-  </div>
-
-
-
-  <% if @beers.total_count > 10 %>
-    <div class="row user-comment-box">
-      <div class="mx-col-md-9 page-line">
-        <div class="page-area">
-          <P class="cmment-content"><%= paginate @beers %></P>
+    <% if @beers.total_count > 10 %>
+      <div class="row user-comment-box ">
+        <div class="mx-col-md-9 page-line">
+          <div class="page-area">
+            <P class="cmment-content"><%= paginate @beers %></P>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-
-
+    <% end %>
+  </div>
 </div>

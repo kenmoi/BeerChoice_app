@@ -27,7 +27,11 @@
             <div class="beer-text">
               <div class="point">
                 <p class="point-title">&nbsp;✔️ ポイント</p>
+                <% if @beer.feature.present? %>
                 <p class="point-text"><%= @beer.feature %></p>
+                <% else %>
+                <p class="point-text ml-4">なし</p>
+                <% end %>
               </div>
               <table>
                 <tbody>

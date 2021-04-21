@@ -1,16 +1,21 @@
 <div class="container">
   <div class="row mx-auto pb-0">
     <div class="user-index-title col-md-11">
-      <h2 class="page-title">
-        <span class="beer">ユーザー一覧</span>
+      <h2 class="page-title d-flex">
+        <div class="beer col-6">ユーザー一覧</div>
       </h2>
     </div>
   </div>
 </div>
-
-
-
-
+<% if @users.total_count > 8 %>
+<div class="row index-page-box col-6">
+  <div class="mx-col-md-9 page-line">
+    <div class="index-page-area">
+      <P class="cmment-content"><%= paginate @users %></P>
+    </div>
+  </div>
+</div>
+<% end %>
 <div class="user-index-area">
   <div class="d-flex flex-wrap mx-auto">
     <% @users.each do |user| %>
@@ -18,35 +23,23 @@
         <%= link_to mypage_path(user) do %>
           <div><%= attachment_image_tag user, :profile_image, :fill, 170, 170, fallback: "no_image.jpg", size:'170x170',  class: 'user-picture' %></div>
         <% end %>
-        
         <div class="pt-2">
           <p class="rank-name">
-            &nbsp;<i class="fas fa-user"></i>
+            &nbsp;&nbsp;<i class="fas fa-user"></i>
             <%= link_to mypage_path(user), class: 'text-black-50 border-bottom' do %>
               <%= user.name %>
             <% end %>
           </p>
         </div>
-        
         <div class="index-style-box">
-          <span>好きなスタイル</span><br>
+          <span class="index-beer-style">好きなビアスタイル</span><br>
           <% if user.favorite_style.present? %>
-          <%= user.favorite_style %>
+          &nbsp;&nbsp;<%= user.favorite_style %>
           <% else %>
-          <span>なし</span>
+          &nbsp;&nbsp;<span>なし</span>
           <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-  <% if @users.total_count > 8 %>
-    <div class="row user-comment-box">
-      <div class="mx-col-md-9 page-line">
-        <div class="page-area">
-          <P class="cmment-content"><%= paginate @users %></P>
-        </div>
-      </div>
-    </div>
-  <% end %>

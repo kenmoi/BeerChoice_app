@@ -63,17 +63,119 @@ main {
 =====================================*/
 
 header{
-   width: 100%;
-   background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
+  width: 100%;
+  background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
+}
+
+.title {
+  font-family: cursive;
+  font-weight: bold;
+  margin-top: 7px;
+  padding-left: 10px;
+}
+
+.navbar-nav {
+  margin-right: 35px;
 }
 
 .nav-item{
-   padding: 10px 20px;
+  padding: 10px 20px;
+  font-size: 100%;
 }
 
 footer{
-   margin-top: auto;
-   background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
+  margin-top: auto;
+  background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
+  padding-top: 44px;
+  padding-bottom: 25px;
+}
+
+/*=====================================
+  header / hamburger
+=====================================*/
+
+.menu-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  height: 69px;
+  width: 76px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+}
+
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 45px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: absolute;
+}
+
+.menu-btn span:before {
+  bottom: 8px;
+}
+
+.menu-btn span:after {
+  top: 8px;
+}
+
+#menu-btn-check:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#menu-btn-check:checked ~ .menu-btn span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#menu-btn-check:checked ~ .menu-btn span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+#menu-btn-check {
+  display: none;
+}
+
+// メニュー内の装飾
+.menu-content {
+  margin-top: 88px;
+  width: 19%;
+  height: 75%;
+  position: fixed;
+  top: 0;
+  left: 117%;
+  z-index: 80;
+  background-color: #1D1625;
+  transition: all 0.4s;
+  margin-left: 83%;
+}
+
+.menu-content ul {
+  padding: 70px 10px 0;
+}
+
+.menu-content ul li {
+  list-style: none;
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  box-sizing: border-box;
+  color:#ffffff;
+  text-decoration: none;
+  padding: 9px 15px 10px 0;
+}
+// ここまで
+
+#menu-btn-check:checked ~ .menu-content {
+  left: 0;
 }
 
 /*=====================================
@@ -299,6 +401,17 @@ footer{
  user / index
 =====================================*/
 
+.index-page-box {
+  margin-left: 170px;
+  margin-bottom: 16px;
+}
+
+.index-page-area {
+  background: #fff;
+  padding: 15px 15px 1px;
+  border-radius: 23px;
+}
+
 .user-index-title {
   text-align: left;
 }
@@ -315,8 +428,7 @@ footer{
   margin-right: 30px;
   margin-left: 30px;
   margin-bottom: 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 10px #666666;
+  border-radius: 40px;
   border: 1px solid #cdc5c5;
 }
 
@@ -328,11 +440,17 @@ footer{
 
 .index-style-box {
   border-radius: 28px;
-  // padding: 3px 5px 3px 5px 3px;
+  padding: 5px 20px 7px 20px;
   margin-right: 3px;
   margin-left: 3px;
   background: #FFFCDB;
   margin-top: 8px;
+}
+
+.index-beer-style {
+  font-weight: bold;
+  font-size: 80%;
+  color: #5a320a;
 }
 
 /*=====================================
@@ -399,9 +517,6 @@ table {
   border-bottom: 2px solid #573929;
 }
 
-.list-box {
-}
-
 .list-item {
   display: flex;
   background: #fff;
@@ -416,12 +531,13 @@ table {
 }
 
 .index-text-box {
-  // margin-left: 40px;
   float: left;
 }
 
 .index-text-box-2 {
   float: right;
+  position: relative;
+  height: 83px;
 }
 
 .item-title {
@@ -431,8 +547,52 @@ table {
   padding-top: 6px;
 }
 
+.index-beer-feature {
+  background: #FFFCDB;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 3px;
+}
+
+.index-point-title {
+  border-bottom: 1px solid #DDDDDD;
+  padding-bottom: 1px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 75%;
+  color: #5a320a;
+}
+
 .index-user-name {
-  padding-top: 7px;
+  font-size: 90%;
+}
+
+.index-point-text {
+  margin-bottom: 0;
+  padding-left: 8px;
+  font-size: 85%;
+}
+
+.index-score-box {
+  font-size: 130%;
+}
+
+.index-beer-score {
+  font-size: 95%;
+  font-weight: bolder;
+  color: #FF6928;
+}
+
+.index-max-score {
+  font-size: 70%;
+  font-weight: bolder;
+}
+
+.index-create {
+  position: absolute;
+  bottom: 0;
+  margin-left: 130px;
+  padding: 0;
 }
 
 /*=====================================

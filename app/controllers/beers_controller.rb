@@ -11,10 +11,8 @@ class BeersController < ApplicationController
       flash[:notice] = "投稿が完了しました！"
       redirect_to beer_path(@beer.id)
     else
+      @beers = Beer.order(created_at: :desc).page(params[:page]).per(10)
       redirect_to beers_path
-      # @beers = Beer.all
-      # @user = User.find(current_user.id)
-      # render :index
     end
   end
 
