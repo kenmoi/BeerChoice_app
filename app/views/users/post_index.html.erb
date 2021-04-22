@@ -2,7 +2,11 @@
   <div class="row mx-auto pb-5">
     <div class="main-title col-11 mb-0">
       <h2 class="index-title">
-        <span class="post">投稿一覧</span>
+        <% if current_user == @user %>
+        <span class="post">&nbsp;My&nbsp;投稿リスト</span>
+        <% else %>
+        <span class="post">ユーザー投稿一覧</span>
+        <% end %>
       </h2>
       <% if @beers.present? %>
         <%= render 'beers/index', beers: @beers %>

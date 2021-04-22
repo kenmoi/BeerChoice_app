@@ -10,6 +10,10 @@ class Beer < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  def self.search(word)
+      @beer = Beer.where("name LIKE?","%#{word}%")
+  end
+
   with_options presence: true do
     validates :name, length: { minimum: 1, maximum: 15 }, uniqueness: true
     validates :style

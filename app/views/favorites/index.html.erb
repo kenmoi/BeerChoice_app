@@ -2,12 +2,16 @@
   <div class="row mx-auto pb-5">
     <div class="main-title col-11 mb-0">
       <h2 class="index-title">
-        <span class="post">投稿一覧</span>
+        <% if current_user == @user %>
+        <span class="post">&nbsp;My&nbsp;いいねリスト</span>
+        <% else %>
+        <span class="post">いいねリスト</span>
+        <% end %>
       </h2>
       <% if @beers.present? %>
         <%= render 'beers/index', beers: @beers %>
       <% else %>
-      　<h4 class="pl-4">まだ投稿されていません</h3>
+      　<h4 class="pl-4">いいねされた投稿はありません</h3>
       <% end %>
     </div>
     <% if @beers.total_count > 10 %>

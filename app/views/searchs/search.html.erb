@@ -2,12 +2,12 @@
   <div class="row mx-auto pb-5">
     <div class="main-title col-11 mb-0">
       <h2 class="index-title">
-        <span class="post">投稿一覧</span>
+        <span class="post">検索結果</span>
       </h2>
       <% if @beers.present? %>
         <%= render 'beers/index', beers: @beers %>
       <% else %>
-      　<h4 class="pl-4">まだ投稿されていません</h3>
+      　<h4 class="pl-4">該当する投稿は見つかりませんでした</h3>
       <% end %>
     </div>
     <% if @beers.total_count > 10 %>

@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def post_index
+    @user = User.find_by(id: params[:id])
+    @beers = @user.beers.order(created_at: :desc).page(params[:page]).per(10)
+  end
+
   def index
     @users = User.order(created_at: :desc).page(params[:page]).per(8)
   end
