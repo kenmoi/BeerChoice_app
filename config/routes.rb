@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get   'users/:id/cancel'  => 'users#cancel', as: 'cancel'
   get   'users/:id/post_index'  => 'users#post_index', as: 'post_index'
   get   'users/:id/favorite'  => 'favorites#index', as: 'favorite'
+  get   'homes/score'  => 'homes#score', as: 'score'
   patch 'users/:id/quit'    => 'users#quit', as: 'quit'
   resources :users, only:[:index, :show, :edit, :update]
   resources :beers do

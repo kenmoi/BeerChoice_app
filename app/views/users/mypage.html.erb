@@ -2,7 +2,11 @@
   <div class="row mx-auto">
     <div class="main-title col-md-11">
       <h2 class="page-title">
+        <% if current_user == @user %>
+        <span class="beer">&nbsp;My&nbsp;ページ</span>
+        <% else %>
         <span class="beer">ユーザーページ</span>
+        <% end %>
       </h2>
       <div class="profileBox">
         <div class="profile">
