@@ -35,6 +35,7 @@
     <div class="rank-title-box">
       <h2 class="rank-title">レビュースコアTOP３</h2>
     </div>
+    <% if (@rate_ranks & @comment_ranks).present? %>
     <div class="rank-area">
       <div class="d-flex mx-auto">
         <% @rate_ranks.each.with_index(1) do |beer, i| %>
@@ -137,4 +138,9 @@
         <% end %>
       </div>
     </div>
+    <% else %>
+    <div class="top-rank-info">
+      <h5>まだレビューされた投稿はありません</h5>
+    </div>
+    <% end %>
   </section>

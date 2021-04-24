@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :beers, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  enum sex: { man: 0, woman: 1}
+  enum sex: { 男性: 0, 女性: 1}
   enum favorite_style: { ラガー: 1, エール: 2, ハイブリッド: 3, その他: 4 }
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
