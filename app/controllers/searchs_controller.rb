@@ -2,17 +2,20 @@ class SearchsController < ApplicationController
 
   def search
     word = params[:word]
+    @word = word
     beer_ids = Beer.search(word)
-    # @beers = Beer.search(word).order(created_at: :desc).page(params[:page]).per(10)
-    sort = params[:keyword]
-    @beers = Beer.where(id: beer_ids).sort(sort).page(params[:page]).per(10)
-    # @beers = Beer.search(word).sort(sort).page(params[:page]).per(10)
-    # if @word ==
-    # else
-    #   @beers = Beer.order(sort)
-    # end
-    # @beers = Beer.search(word).sort(sort).page(params[:page]).per(10)
-    # @beers = Beer.sort(sort)
+    @sort = params[:keyword]
+
+    if @sort == "many"
+      beers = beer_ids.includes(:post_comments).sort {|a,b| b.post_comments.size <=> a.post_comments.size}
+    elsif @sort == "likes"
+      beers = beer_ids.includes(:favorites).sort {|a,b| b.favorites.size <=> a.favorites.size}
+    elsif @sort == "old"
+      beers = beer_ids.order(created_at: :asc)
+    else
+      beers = beer_ids.order(created_at: :desc)
+    end
+    @beers = Kaminari.paginate_array(beers).page(params[:page]).per(10)
   end
 
 end

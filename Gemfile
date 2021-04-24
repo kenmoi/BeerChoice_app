@@ -72,6 +72,7 @@ gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
 gem 'active_hash'
 gem 'dotenv-rails'
+gem 'rails-i18n'
 group :production do
   gem 'mysql2'
 end

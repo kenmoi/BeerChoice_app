@@ -33,7 +33,7 @@
                         <li>
                           <%= form_tag(search_path, method: :get) do %>
                             <%= text_field_tag 'word', '', placeholder: "ビール名を入力", class: 'search-box' %><br>
-                            <div class="pt-1"><%= select_tag 'keyword', options_for_select([['投稿が新しい順', 'new'], ['投稿が古い順', 'old'], ['コメントが多い順', 'many'], ['いいねが多い順', 'likes']]) %></div>
+                            <div class="pt-1"><%= select_tag 'keyword', options_for_select([['投稿が新しい順', 'new'], ['投稿が古い順', 'old'], ['コメントが多い順', 'many'], ['いいねが多い順', 'likes']]), class: 'key-search-btn' %></div>
                             <div class="pt-1"><%= submit_tag '検索', class: 'search-btn' %></div>
                           <% end %>
                         </li>

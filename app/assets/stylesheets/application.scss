@@ -43,6 +43,19 @@ main {
 }
 
 /*=====================================
+  error_message
+=====================================*/
+
+#error_explanation {
+  color: red;
+  padding-left: 30px;
+}
+
+#error_explanation ul {
+  padding-left: 22px;
+}
+
+/*=====================================
   pagination
 =====================================*/
 
@@ -59,7 +72,7 @@ main {
 }
 
 /*=====================================
- header - footer
+ header ~ footer
 =====================================*/
 
 header{
@@ -187,12 +200,43 @@ footer{
   padding: 1px 3px 1px 2px;
 }
 
+.key-search-btn {
+  padding: 1px 1px 1px;
+}
+
+/*=====================================
+  searchs / search
+=====================================*/
+
+.search-text {
+  display: flex;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.search-word {
+  font-size: 110%;
+  max-width: 75%;
+  padding: 1px 10px 1px 10px;
+  border: 1px solid #DDDDDD;
+  background: #FFFAFA;
+}
+
+.search-key {
+  margin-left: auto;
+  font-size: 110%;
+  padding: 1px 10px 1px 10px;
+  border: 1px solid #DDDDDD;
+  background: #FFFAFA;
+  height: 30px;
+}
+
 /*=====================================
   home / top
 =====================================*/
 
 #mv {
-  background-image: url(beer-mv.jpg);
+  background-image: image-url("beer-mv.jpg");
   background-size: cover;
   background-position: 50% 60%;
   width: 100%;

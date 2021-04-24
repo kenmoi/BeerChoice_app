@@ -25,6 +25,7 @@ ja:
       - :month
       - :day
 
+
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
@@ -32,3 +33,20 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
     am: "午前"
     pm: "午後"
+
+
+  activerecord:
+    models:
+      beer: "ビール投稿"
+      user: "ユーザー登録情報"
+    attributes:
+      beer:
+        name: "ビール名"
+        style: "ビールスタイル"
+        retailer: "購入場所"
+      user:
+        name: "ユーザー名"
+        email: "メールアドレス"
+        password: "パスワード"
+        sex: "性別"
+        prefecture_id: "都道府県"

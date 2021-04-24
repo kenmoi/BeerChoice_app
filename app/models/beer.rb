@@ -14,21 +14,8 @@ class Beer < ApplicationRecord
       @beer = Beer.where("name LIKE?","%#{word}%")
   end
 
-  def self.sort(sort)
-    case sort
-    when 'new'
-      return all.order(created_at: :desc)
-    when 'old'
-      return all.order(created_at: :asc)
-    when 'many'
-      return find(PostComment.group(:beer_id).order('count(beer_id) desc').pluck(:beer_id))
-    when 'likes'
-      return find(Favorite.group(:beer_id).order('count(beer_id) desc').pluck(:beer_id))
-    end
-  end
-
   with_options presence: true do
-    validates :name, length: { minimum: 1, maximum: 15 }, uniqueness: true
+    validates :name, length: { minimum: 1, maximum: 15 }
     validates :style
     validates :retailer
   end

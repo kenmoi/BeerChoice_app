@@ -4,6 +4,7 @@
       <h2 class="page-title">
         <span class="new">新規投稿</span>
       </h2>
+      <%= render 'layouts/errors', obj: @beer %>
       <%= form_with model: @beer, local:true do |f| %>
       <div>
         <table>

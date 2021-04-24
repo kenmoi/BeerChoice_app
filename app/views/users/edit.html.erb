@@ -4,6 +4,7 @@
       <h2 class="page-title">
         <span class="beer">登録情報・プロフィールの変更</span>
       </h2>
+      <%= render 'layouts/errors', obj: @user %>
       <%= form_with model: @user, local:true do |f| %>
       <div class="info">
         <table>

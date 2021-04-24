@@ -4,6 +4,22 @@
       <h2 class="index-title">
         <span class="post">検索結果</span>
       </h2>
+      <div class="search-text">
+        <% if @word.present? %>
+        <div class="search-word">検索ワード:&thinsp;<%= @word %></div>
+        <% else %>
+        <div class="search-word">検索ワード:&nbsp;なし</div>
+        <% end %>
+        <% if @sort == "old" %>
+        <div class="search-key">投稿が古い順</div>
+        <% elsif @sort == "many" %>
+        <div class="search-key">コメントが多い順</div>
+        <% elsif @sort == "likes" %>
+        <div class="search-key">いいねが多い順</div>
+        <% else %>
+        <div class="search-key">投稿が新しい順</div>
+        <% end %>
+      </div>
       <% if @beers.present? %>
         <%= render 'beers/index', beers: @beers %>
       <% else %>
