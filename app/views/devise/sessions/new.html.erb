@@ -27,7 +27,9 @@
           <div class="actions row mt-4">
            <%= f.submit "ログイン", class: 'btn btn-danger mx-auto h3' %>
           </div>
-          <%= render "devise/shared/links" %>
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <%= link_to "新規登録", new_registration_path(resource_name), class: 'text-secondary' %><br />
+          <% end %>
         </div>
       <% end %>
     </div>
