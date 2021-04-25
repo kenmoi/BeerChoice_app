@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   }
   root to: 'homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/post' => 'searchs#search'
+  get '/post' => 'searchs#search', as: 'search'
   get   'users/:id/mypage'  => 'users#mypage', as: 'mypage'
   get 'users/:id/delete_image'  => 'users#delete_image', as: 'delete_image'
   get   'users/:id/cancel'  => 'users#cancel', as: 'cancel'

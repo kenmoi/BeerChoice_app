@@ -11,7 +11,7 @@ class Beer < ApplicationRecord
   end
 
   def self.search(word)
-      @beer = Beer.where("name LIKE?","%#{word}%")
+    @beer = Beer.where('name LIKE?', "%#{word}%")
   end
 
   with_options presence: true do

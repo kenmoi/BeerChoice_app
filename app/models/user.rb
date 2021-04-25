@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :beers, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  enum sex: { 男性: 0, 女性: 1}
+  enum sex: { 男性: 0, 女性: 1 }
   enum favorite_style: { ラガー: 1, エール: 2, ハイブリッド: 3, その他: 4 }
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
@@ -17,7 +17,6 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (is_deleted == false)
   end
-
 
   with_options presence: true do
     validates :name, length: { minimum: 1, maximum: 10 }, uniqueness: true

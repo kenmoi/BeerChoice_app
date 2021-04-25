@@ -29,13 +29,11 @@ class Users::SessionsController < Devise::SessionsController
   # 同じアカウントでは利用不可
   def reject_user
     @user = User.find_by(email: params[:user][:email])
-    if @user
-      if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
-        flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
-        redirect_to new_user_registration_path
-      else
-        flash[:notice] = "項目を入力してください"
-      end
+    return flash[:notice] = '項目を入力してください' if @user.nil?
+
+    if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
+      flash[:notice] = '退会済みです。再度ご登録をしてご利用ください。'
+      redirect_to new_user_registration_path
     end
   end
 end

@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-
   def index
     @user = User.find_by(id: params[:id])
     beer_ids = Favorite.where(user_id: @user).pluck(:beer_id)
@@ -17,5 +16,4 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(beer_id: @beer.id)
     favorite.destroy
   end
-
 end

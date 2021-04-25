@@ -51,7 +51,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_sign_up_path_for(resource)
-    flash[:notice] = "新規登録ありがとうございます！"
+    flash[:notice] = '新規登録ありがとうございます！'
     mypage_path(resource)
   end
 

@@ -1,5 +1,4 @@
 class BeersController < ApplicationController
-
   def new
     @beer = Beer.new
   end
@@ -8,7 +7,7 @@ class BeersController < ApplicationController
     @beer = current_user.beers.new(beer_params)
     @beer.user_id = current_user.id
     if @beer.save
-      flash[:notice] = "投稿が完了しました！"
+      flash[:notice] = '投稿が完了しました！'
       redirect_to beer_path(@beer.id)
     else
       render :new
@@ -20,18 +19,16 @@ class BeersController < ApplicationController
   end
 
   def show
-    unless user_signed_in?
-      flash[:notice] = "こちらからご登録後に閲覧いただけます！"
-      redirect_to new_user_registration_path
-    else
+    if user_signed_in?
       @beer = Beer.find(params[:id])
       @comments = @beer.post_comments.all.order(created_at: :desc).page(params[:page]).per(10)
       @average = PostComment.where(beer_id: @beer.id).average(:rate)
-      if @average.nil?
-        @average = 0
-      end
+      @average = 0 if @average.nil?
       @user = @beer.user
       @post_comment = PostComment.new
+    else
+      flash[:notice] = 'こちらからご登録後に閲覧いただけます！'
+      redirect_to new_user_registration_path
     end
   end
 
@@ -47,7 +44,7 @@ class BeersController < ApplicationController
   def update
     @beer = Beer.find(params[:id])
     if @beer.update(beer_params)
-      flash[:notice] = "投稿内容を更新しました！"
+      flash[:notice] = '投稿内容を更新しました！'
       redirect_to beer_path(@beer)
     else
       render :edit
@@ -57,7 +54,7 @@ class BeersController < ApplicationController
   def destroy
     beer = Beer.find(params[:id])
     beer.destroy
-    flash[:notice] = "投稿を削除しました！"
+    flash[:notice] = '投稿を削除しました！'
     redirect_to beers_path
   end
 

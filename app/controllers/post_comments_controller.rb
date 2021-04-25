@@ -1,5 +1,4 @@
 class PostCommentsController < ApplicationController
-
   def create
     @beer = Beer.find(params[:beer_id])
     @comment = current_user.post_comments.new(post_comment_params)
