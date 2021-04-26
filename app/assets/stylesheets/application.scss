@@ -77,7 +77,7 @@ main {
 
 header{
   width: 100%;
-  background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
+  background: linear-gradient(to right, #870000, #390a05);
 }
 
 .title {
@@ -98,7 +98,7 @@ header{
 
 footer{
   margin-top: auto;
-  background: linear-gradient(45deg, #d46c4f 0%, #d46c4f 30%, #9e4028 70%, #9e4028 100%);
+  background: linear-gradient(to right, #590a05, #870000);
   padding-top: 44px;
   padding-bottom: 25px;
 }
