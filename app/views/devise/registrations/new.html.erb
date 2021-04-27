@@ -11,7 +11,10 @@
             <tbody>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :name, "ユーザー名" %></th>
-                <td style="width: 50%;" class="t-body2"><%= f.text_field :name, autofocus: true, class: 'form-control' %></td>
+                <td style="width: 50%;" class="t-body2">
+                  <em>10文字以内でご入力ください、当サイトにて公開されます。</em><br>
+                  <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+                </td>
               </tr>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :email, "Eメール" %></th>
@@ -28,7 +31,10 @@
               </tr>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :birth_date, "生年月日" %></th>
-                <td style="width: 50%;" class="t-body2"><%= f.date_select :birth_date, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 20), default: Date.new(1990, 1, 1) %></td>
+                <td style="width: 50%;" class="t-body2">
+                  <em>20歳未満の方はご登録いただけません。</em><br>
+                  <%= f.date_select :birth_date, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 20), default: Date.new(1990, 1, 1) %>
+                </td>
               </tr>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :prefecture_id, "都道府県" %></th>
@@ -38,14 +44,17 @@
                 <th style="width: 50%;" class="t-head"><%= f.label :password, "パスワード" %></th>
                 <td style="width: 50%;" class="t-body2">
                   <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <em><%= @minimum_password_length %> 文字以上でご入力ください。</em>
                   <% end %><br />
                   <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
                 </td>
               </tr>
               <tr>
                 <th style="width: 50%;" class="t-head"><%= f.label :password_confirmation, "パスワード（確認）" %></th>
-                <td style="width: 50%;" class="t-body2"><%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %></td>
+                <td style="width: 50%;" class="t-body2">
+                  <em>上のパスワードと同じものをご入力ください。</em><br>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+                </td>
               </tr>
             </tbody>
           </table>
