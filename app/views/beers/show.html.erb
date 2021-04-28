@@ -41,7 +41,11 @@
                   </tr>
                   <tr>
                     <th class="t-head2">アルコール度数</th>
-                    <td class="t-body2"><%= @beer.abv %> %</td>
+                    <% if @beer.abv.present? %>
+                    <td class="t-body2"><%= @beer.abv %>&nbsp;%</td>
+                    <% else %>
+                    <td class="t-body2"><%= @beer.abv %></td>
+                    <% end %>
                   </tr>
                 </tbody>
               </table>

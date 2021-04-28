@@ -11,7 +11,10 @@
           <tbody>
             <tr>
               <th style="width: 25%;" class="t-head2"><%= f.label :name, "ビール名" %></th>
-              <td style="width: 85%;" class="t-body2"><%= f.text_field :name, class: 'form-control' %></td>
+              <td style="width: 85%;" class="t-body2">
+                <em>15文字以内でご入力ください。</em><br>
+                <%= f.text_field :name, class: 'form-control' %>
+              </td>
             </tr>
             <tr>
               <th style="width: 25%;" class="t-head2"><%= f.label :feature, "おすすめポイント" %></th>
