@@ -36,8 +36,9 @@
             <tr>
               <th style="width: 25%;" class="t-head2"><%= f.label :image_id, "ビール画像" %></th>
               <td style="width: 85%;" class="t-body2">
-                <%= attachment_image_tag @beer, :image, :fill, 200, 150, class: 'mb-2' %><br>
-                <%= f.attachment_field :image, placeholder: "ビール画像" %>
+                <%= f.attachment_field :image, placeholder: "ビール画像" %><br>
+                <div id="new-image"></div>
+                <%= attachment_image_tag @beer, :image, :fill, 200, 150, class: 'mt-2' %>
               </td>
             </tr>
           </tbody>
