@@ -4,7 +4,8 @@
 
 お気に入りのビールを共有したい！新しいビールを開拓したいあなたに向けたビール専門投稿クチコミサイト！
 
-![BeerChoice-TOPimage](https://user-images.githubusercontent.com/76833170/116329065-694eb200-a805-11eb-9b15-31b8b0ca210b.png "サンプル")
+### サイトTOPページ
+![BeerChoice-TOPimage](https://user-images.githubusercontent.com/76833170/116332698-327c9a00-a80d-11eb-94b8-868067dd2c9f.png "TOPページ")
 
 ### サイトテーマ
 
