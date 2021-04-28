@@ -3,7 +3,7 @@
     <div class="list-item">
       <div class="list-beer-image">
         <%= link_to beer_path(beer.id), 'data-turbolinks': false do %>
-         <%= attachment_image_tag beer, :image, :fill, 130, 120, fallback: "no_image.jpg", size:'130x120', class: 'index-picture' %>
+         <%= attachment_image_tag beer, :image, :limit, 130, 120, fallback: "no_image.jpg", size:'130x120', class: 'index-picture' %>
         <% end %>
       </div>
       <div class="col-10">

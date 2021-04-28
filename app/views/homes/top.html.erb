@@ -96,7 +96,7 @@
               <span class="favorit-top">❤️ <%= beer.favorites.count %></span>
             </div>
             <%= link_to beer_path(beer) do %>
-              <div><%= attachment_image_tag beer, :image, :fill, 382, 274, fallback: "no_image.jpg", size:'352x244',class: 'image-picture' %></div>
+              <div><%= attachment_image_tag beer, :image, :limit, 382, 274, fallback: "no_image.jpg", size:'352x244',class: 'image-picture' %></div>
             <% end %>
             <div class="pt-2">
               <p class="rank-name">
