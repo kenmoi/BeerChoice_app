@@ -5,7 +5,7 @@
         <div class="details-box">
           <div id="beer_<%= @beer.id %>">
             <div class="head d-flex">
-              <h2 class="headline ml-2"><i class="fas fa-beer text-warning"></i> <%= @beer.name %></h2>
+              <h2 class="headline ml-4"><i class="fas fa-beer text-warning"></i> <%= @beer.name %></h2>
               <p class="favorite-btn"><%= render 'favorites/favorite-btn', beer: @beer %></p>
             </div>
             <ul class="line">
@@ -22,7 +22,7 @@
           </div>
           <div class="content-box">
             <div class="image-box">
-              <div class="beer-image"><%= attachment_image_tag @beer, :image, :limit, 450, 360, fallback: "no_image.jpg", size:'450x360',class: 'image-picture' %></div>
+              <div class="beer-image"><%= attachment_image_tag @beer, :image, :fill, 370, 370, fallback: "no_image.jpg", size:'370x370',class: 'show-image-picture' %></div>
             </div>
             <div class="beer-text">
               <div class="point">
