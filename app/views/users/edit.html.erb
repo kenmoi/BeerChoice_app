@@ -11,7 +11,10 @@
           <tbody>
             <tr>
               <th style="width: 50%;" class="t-head">ユーザー名</th>
-              <td style="width: 50%;" class="t-body2"><%= f.text_field :name, autofocus: true, class: 'form-control' %></td>
+              <td style="width: 50%;" class="t-body2">
+                <em>10文字以内でご入力ください。</em><br>
+                <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+              </td>
             </tr>
             <tr>
               <th style="width: 50%;" class="t-head">メールアドレス</th>
