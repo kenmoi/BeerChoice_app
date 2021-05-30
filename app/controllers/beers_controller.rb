@@ -52,10 +52,14 @@ class BeersController < ApplicationController
   end
 
   def destroy
-    beer = Beer.find(params[:id])
-    beer.destroy
-    flash[:notice] = '投稿を削除しました！'
-    redirect_to beers_path
+    @beer = Beer.find(params[:id])
+    if current_user == @beer.user
+      @beer.destroy
+      flash[:notice] = '投稿を削除しました！'
+      redirect_to beers_path
+    else
+      redirect_to root_path
+    end
   end
 
   private
